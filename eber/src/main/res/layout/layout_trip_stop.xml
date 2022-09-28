@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llStopAddress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/toolbar_bg_rounded"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="#B2B2B2" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                app:srcCompat="@drawable/user_pin" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="#B2B2B2" />
+        </LinearLayout>
+
+        <com.elluminati.eber.components.MyFontAutocompleteView
+            android:id="@+id/acStopLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pv_pin_view_item_spacing"
+            android:layout_marginBottom="@dimen/pv_pin_view_item_spacing"
+            android:layout_weight="1"
+            android:background="@drawable/address_bg"
+            android:dropDownAnchor="@id/cardAddress"
+            android:dropDownVerticalOffset="2sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/text_type_stop_location"
+            android:inputType="textNoSuggestions"
+            android:paddingStart="@dimen/dimen_bill_line"
+            android:paddingTop="@dimen/activity_margin_register"
+            android:paddingEnd="@dimen/dimen_bill_line"
+            android:paddingBottom="@dimen/activity_margin_register"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textColorHint="@color/color_app_hint_autocomplete"
+            android:textSize="@dimen/size_general_small" />
+
+        <ImageView
+            android:id="@+id/ivClearStopTextMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:padding="2dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/cross_grey_icon" />
+
+    </LinearLayout>
+
+</LinearLayout>

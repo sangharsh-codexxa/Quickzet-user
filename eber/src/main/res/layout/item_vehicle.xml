@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dimen_vehicle_type_width"
+    android:layout_height="@dimen/dimen_vehicle_type_height">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivVehicle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:id="@+id/tvVehicleTypeFancy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="Standard"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/size_general_small"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/viewSelectDiv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/color_app_divider_horizontal" />
+</FrameLayout>

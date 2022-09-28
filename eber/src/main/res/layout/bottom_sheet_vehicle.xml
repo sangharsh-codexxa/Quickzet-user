@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llRequestView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_app_trans_white"
+    android:orientation="vertical"
+    android:visibility="visible"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:id="@+id/ivBtnPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:paddingStart="@dimen/activity_horizontal_padding"
+        android:paddingTop="@dimen/activity_horizontal_padding"
+        android:paddingEnd="@dimen/activity_horizontal_padding"
+        android:paddingBottom="@dimen/activity_horizontal_padding"
+        android:text="@string/text_have_promocode"
+        android:textColor="@color/color_app_text"
+        android:textSize="@dimen/size_general_small"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvEberNow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/activity_horizontal_padding"
+            android:text="@string/text_eber_now"
+            android:textAlignment="center"
+            android:textColor="@color/color_app_label"
+            android:textSize="@dimen/size_general_small" />
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvEberRental"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/activity_horizontal_padding"
+
+            android:text="@string/text_eber_rental"
+            android:textAlignment="center"
+            android:textColor="@color/color_app_label"
+            android:textSize="@dimen/size_general_small" />
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvEberRideShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/activity_horizontal_padding"
+            android:text="@string/text_ride_share"
+            android:textAlignment="center"
+            android:textColor="@color/color_app_label"
+            android:textSize="@dimen/size_general_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llRideView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/viewSelectDiv"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/color_app_divider_horizontal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvMapVehicleType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:overScrollMode="never"
+                android:scrollIndicators="none"
+                android:visibility="visible">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/dimen_bill_line"
+                android:paddingEnd="@dimen/dimen_bill_line">
+
+                <LinearLayout
+                    android:id="@+id/llFareEstimate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_bill_margin_two">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/fare_est_icon" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvFareEst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_bill_margin_three"
+                        android:text="@string/text_fare_est"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRentPackages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_bill_margin_two">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/rent_car_icon" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvRentalPackage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_bill_margin_three"
+                        android:text="0"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dimen_bill_margin_two"
+                    android:layout_marginBottom="@dimen/dimen_bill_margin_two"
+                    android:background="@color/color_app_divider_horizontal" />
+
+                <LinearLayout
+                    android:id="@+id/llAddPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|bottom"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dimen_bill_margin_two">
+
+                        <ImageView
+                            android:id="@+id/ivPaymentIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            app:srcCompat="@drawable/cash" />
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:id="@+id/tvPaymentType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_bill_margin_three"
+                            android:text="@string/text_pay_by"
+                            android:textColor="@color/color_app_text"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/diveEta"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dimen_bill_margin_two"
+                    android:layout_marginBottom="@dimen/dimen_bill_margin_two"
+                    android:background="@color/color_app_divider_horizontal" />
+
+
+                <LinearLayout
+                    android:id="@+id/llETA"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_bill_margin_two">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/time" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvMapEta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_bill_margin_three"
+                        android:text="@string/text_eta"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cbPayByCorporate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="@string/text_would_you_like_to_pay_by_corporate"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/size_general_small"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/llRideNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_bill_line"
+                android:layout_marginTop="@dimen/dimen_bill_margin_two"
+                android:layout_marginEnd="@dimen/dimen_bill_line"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dimen_bill_line"
+                android:visibility="visible">
+
+                <com.elluminati.eber.components.MyFontButton
+                    android:id="@+id/btnRideNow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                    android:layout_weight="1"
+                    android:alpha="0.5"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:enabled="false"
+                    android:text="@string/text_ride_now"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/size_general_small" />
+
+                <ImageView
+                    android:id="@+id/ivRideLater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:padding="12dp"
+                    app:srcCompat="@drawable/ride_later_icon_white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.elluminati.eber.components.MyFontButton
+            android:id="@+id/btnSelectRent"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dimen_bill_line"
+            android:layout_marginTop="@dimen/dimen_bill_margin_two"
+            android:layout_marginEnd="@dimen/dimen_bill_line"
+            android:layout_marginBottom="@dimen/dimen_bill_line"
+            android:background="@drawable/selector_rect_shape_blue"
+            android:text="@string/text_select_package"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/size_general_small"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llNoService"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/no_service" />
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/dimen_bill_margin_two"
+            android:text="@string/text_sorry"
+            android:textAllCaps="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/size_general"
+            android:textStyle="bold" />
+
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvMessageNoService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_no_service"
+            android:textColor="@color/color_black" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

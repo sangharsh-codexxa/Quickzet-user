@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_theme_dark"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/text_log_in"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="@dimen/size_logo"
+                android:layout_height="@dimen/size_logo"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_bill_margin_two"
+                android:layout_marginBottom="@dimen/dimen_bill_margin_two"
+                android:paddingTop="@dimen/activity_logo_margin"
+                android:paddingBottom="@dimen/activity_logo_margin"
+                android:src="@drawable/eber_logo_small"
+                android:visibility="visible" />
+
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_login_with"
+                android:textSize="@dimen/size_general" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/ivFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_bill_line"
+                    android:padding="@dimen/dimen_bill_line"
+                    app:srcCompat="@drawable/facebook_icon" />
+
+                <ImageView
+                    android:id="@+id/ivGoogle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_bill_line"
+                    app:srcCompat="@drawable/google_signin_icon" />
+
+            </LinearLayout>
+
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_bill_line"
+                android:gravity="center"
+                android:text="@string/text_or"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general_small" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dimen_horizontal_margin"
+                android:layout_marginEnd="@dimen/dimen_horizontal_margin"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_rect"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_line">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilSingInEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_email">
+
+                        <com.elluminati.eber.components.MyFontEdittextView
+                            android:id="@+id/etSignInEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="@dimen/activity_vertical_margin"
+                            android:singleLine="true"
+                            android:textColor="@color/color_app_text"
+                            android:textColorHint="@color/color_app_label"
+                            android:textSize="@dimen/size_general" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_bill_line"
+                    android:background="@drawable/edit_text_rect"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_line">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_password">
+
+                        <com.elluminati.eber.components.MyFontEdittextView
+                            android:id="@+id/etSignInPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textPassword"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:singleLine="true"
+                            android:textColor="@color/color_app_text"
+                            android:textColorHint="@color/color_app_label"
+                            android:textSize="@dimen/size_general" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.elluminati.eber.components.MyAppTitleFontTextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/dimen_bill_line"
+                    android:text="@string/text_forgot_password"
+                    android:textColor="@color/color_app_label"
+                    android:textSize="@dimen/size_general_small" />
+
+
+                <com.elluminati.eber.components.MyFontButton
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="@dimen/app_button_size"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:gravity="center"
+                    android:text="@string/text_log_in"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/size_general_small" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_bill_second_top"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_account_yet"
+                        android:textSize="@dimen/size_general_small" />
+
+                    <com.elluminati.eber.components.MyAppTitleFontTextView
+                        android:id="@+id/tvGoRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/activity_margin_register"
+                        android:text="@string/text_register"
+                        android:textSize="@dimen/size_general_small" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivSocialProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

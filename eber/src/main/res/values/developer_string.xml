@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toolbar_transient" translatable="false">"toolbarTransient"</string>
+    <string name="top_sheet_behavior" translatable="false">com.elluminati.eber.components.TopSheet.TopSheetBehavior</string>
+</resources>

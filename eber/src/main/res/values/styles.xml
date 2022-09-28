@@ -1,0 +1,76 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/color_app_text_dark</item>
+
+    </style>
+
+    <!--Application theme-->
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!--<item name="android:actionBarStyle">@style/ActionBar</item>-->
+    </style>
+
+    <style name="ActionBar" parent="@style/Base.Widget.AppCompat.ActionBar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/color_app_theme_dark</item>
+        <item name="colorControlActivated">@color/color_app_theme_dark</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/color_app_text_dark</item>
+    </style>
+
+    <style name="MyDialog" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowAnimationStyle">@style/FadeDialogAnimation</item>
+    </style>
+
+    <style name="FadeDialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="AutoCompleteTextViewLight" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="android:textColor">@color/color_white</item>
+    </style>
+
+    <style name="TextAppearanceMedium" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textColor">@color/color_app_theme_dark</item>
+    </style>
+
+    <style name="TextAppearanceSmall" parent="@android:style/TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/color_app_divider_horizontal</item>
+    </style>
+
+    <style name="EditTextView" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/edit_text_rect</item>
+        <item name="android:paddingBottom">@dimen/dimen_bill_line</item>
+        <item name="android:paddingTop">@dimen/dimen_bill_line</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlHighlight">@color/color_black</item>
+        <item name="android:textSize">@dimen/size_general</item>
+        <item name="colorControlActivated">@color/color_black</item>
+    </style>
+
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+    <style name="MyDatePicker" parent="android:Widget.Material.Light.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+</resources>

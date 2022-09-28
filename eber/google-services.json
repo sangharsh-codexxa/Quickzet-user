@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "731023491643",
+    "firebase_url": "https://spry-autumn-357414-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "spry-autumn-357414",
+    "storage_bucket": "spry-autumn-357414.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731023491643:android:36ac420bb902d240b9d21e",
+        "android_client_info": {
+          "package_name": "com.quickzet.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731023491643-m4iqgfbrnmrke3n9okuq88jk1irtsteh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quickzet.customer",
+            "certificate_hash": "f12c5fa3a251f61868c7ab6fd4d87b381e0c49e6"
+          }
+        },
+        {
+          "client_id": "731023491643-hccgs523dcouba4f666lk5hhmnm5hhbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvSr20xmwuSnNBvbagsmh-Dp6zZXhZp3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731023491643-hccgs523dcouba4f666lk5hhmnm5hhbr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "731023491643-47flra8tco7k59ceq58qmn970162uu7b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.quickzet.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731023491643:android:ca7aee8b614928acb9d21e",
+        "android_client_info": {
+          "package_name": "com.quickzet.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731023491643-0jpisp7770bblnau3aqld10c00m3b6de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quickzet.driver",
+            "certificate_hash": "f12c5fa3a251f61868c7ab6fd4d87b381e0c49e6"
+          }
+        },
+        {
+          "client_id": "731023491643-hccgs523dcouba4f666lk5hhmnm5hhbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvSr20xmwuSnNBvbagsmh-Dp6zZXhZp3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731023491643-hccgs523dcouba4f666lk5hhmnm5hhbr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "731023491643-47flra8tco7k59ceq58qmn970162uu7b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.quickzet.customer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

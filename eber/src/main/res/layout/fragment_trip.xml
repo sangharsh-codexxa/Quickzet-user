@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/mapTripFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.elluminati.eber.components.CustomEventMapView
+            android:id="@+id/tripMapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.elluminati.eber.components.CustomEventMapView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_destination_2" />
+
+            <include layout="@layout/layout_payment_mode" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/tripPaymentSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_bill_margin_two"
+            android:background="@android:color/transparent"
+            android:dropDownVerticalOffset="50sp"
+            android:popupBackground="@android:color/transparent"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/ivTripTargetLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                app:backgroundTint="@color/color_white"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_my_location_black_24dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@drawable/shadow_lite" />
+
+            <include layout="@layout/layout_driver_detail" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/ivDriverCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>

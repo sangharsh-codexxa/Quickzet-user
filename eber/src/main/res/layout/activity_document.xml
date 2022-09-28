@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_app_custom" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDocumentList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_bill_line"
+        android:layout_weight="1" />
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_bill_line"
+        android:text="@string/text_mandatory_document"
+        android:textColor="@color/color_app_red"
+        android:textSize="@dimen/size_general_small" />
+
+    <com.elluminati.eber.components.MyFontButton
+        android:id="@+id/btnSubmitDocument"
+        android:layout_width="@dimen/app_button_size"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/dimen_bill_line"
+        android:background="@drawable/selector_round_rect_shape_blue"
+        android:text="@string/text_submit"
+        android:textAllCaps="false"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/size_general_small" />
+
+</LinearLayout>

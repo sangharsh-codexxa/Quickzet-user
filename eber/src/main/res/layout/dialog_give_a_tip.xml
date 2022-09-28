@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvProductFilter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:background="@color/color_white"
+    android:visibility="visible"
+    app:cardCornerRadius="@dimen/card_radius"
+    app:cardElevation="@dimen/dialog_elevation">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_app_theme_bg"
+        android:orientation="vertical">
+
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvDialogTipTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:text="@string/text_do_you_tip"
+            android:textColor="@color/color_app_text_dark"
+            android:textSize="@dimen/size_general" />
+
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvTipTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimen_bill_line"
+            android:text="--"
+            android:textColor="@color/color_app_text"
+            android:textSize="@dimen/size_bill_total" />
+
+
+        <com.elluminati.eber.components.MyFontEdittextView
+            android:id="@+id/etTipAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:ems="10"
+            android:hint="@string/text_enter_tip_amount"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:textColor="@color/edit_text_color"
+            android:textColorHint="@color/color_app_label" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_bill_line"
+            android:layout_marginEnd="@dimen/dimen_bill_line"
+            android:layout_marginBottom="@dimen/dimen_bill_line">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.elluminati.eber.components.MyAppTitleFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_bill_line"
+                    android:text="@string/text_invoice"
+                    android:textAllCaps="true"
+                    android:textColor="@color/color_app_button"
+                    android:textSize="@dimen/size_general" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_bill_line"
+                    android:paddingTop="@dimen/dimen_bill_margin_two"
+                    android:paddingEnd="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_margin_two">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/text_total"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvDialogTipTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_defult_string"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_bill_line"
+                    android:paddingTop="@dimen/dimen_bill_margin_two"
+                    android:paddingEnd="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_margin_two">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/text_referral_bonus"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvDialogTipReferralBonusValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_defult_string"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_bill_line"
+                    android:paddingTop="@dimen/dimen_bill_margin_two"
+                    android:paddingEnd="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_margin_two">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/text_promo_bonus"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvDialogTipPromoBonusValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_defult_string"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:background="@color/color_app_divider_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/dimen_bill_line"
+                    android:paddingTop="@dimen/dimen_bill_margin_two"
+                    android:paddingEnd="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/dimen_bill_margin_two">
+
+
+                    <com.elluminati.eber.components.MyAppTitleFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/text_pay_payments"
+                        android:textAllCaps="true"
+                        android:textColor="@color/color_app_text"
+                        android:textSize="@dimen/size_general" />
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvDialogTipPayments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_defult_string"
+                        android:textColor="@color/color_app_button"
+                        android:textSize="@dimen/size_dialog_big" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <com.elluminati.eber.components.MyFontButton
+                android:id="@+id/btnApply"
+                android:layout_width="@dimen/dialog_button_size"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_rect_shape_blue"
+                android:text="@string/text_apply"
+                android:textAllCaps="false"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/size_general_small">
+
+            </com.elluminati.eber.components.MyFontButton>
+
+            <com.elluminati.eber.components.MyFontButton
+                android:id="@+id/btnCancel"
+                android:layout_width="@dimen/dialog_button_size"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/text_cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general_small" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

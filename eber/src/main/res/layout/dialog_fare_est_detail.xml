@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvProductFilter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:background="@color/color_white"
+    android:visibility="visible"
+    app:cardCornerRadius="@dimen/card_radius"
+    app:cardElevation="@dimen/dialog_elevation">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_app_theme_bg"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_bill_margin_two"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_bill_line"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivVehicleImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dimen_bill_line" />
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:id="@+id/tvVehicleTypeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_fp_margin"
+                            android:gravity="center"
+                            android:text="Suv"
+                            android:textColor="@color/color_app_text"
+                            android:textSize="@dimen/size_general" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llBaseFareLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_base_fare"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvMinFare"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="bottom"
+                                android:maxLines="2"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="$450 for first 2 kms"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_margin_register_button"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_per_km"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvPerMile"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_margin_register_button"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_time_cost_colon"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvFareTimeCost"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_margin_register_button"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_max_size"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvMaxSize"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llCancelFee"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_margin_register_button"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_cancel_fee_colen"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvCancelFee"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llTax"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_margin_register_button"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:gravity="end"
+                                android:text="@string/text_tax_colen"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvTax"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llFixedFareLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.elluminati.eber.components.MyFontTextViewMedium
+                            android:id="@+id/tvTripType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/text_airport_trip"
+                            android:textColor="@color/color_app_text_dark"
+                            android:textSize="@dimen/size_general" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_bill_line"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="@string/text_fixed_rate"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvFixedRateAmount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="@string/text_max_size"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_label" />
+
+                            <com.elluminati.eber.components.MyFontTextViewMedium
+                                android:id="@+id/tvFixedRateMaxSize"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingStart="@dimen/dimen_bill_margin_two"
+                                android:text="00"
+                                android:textColor="@color/color_app_text"
+                                android:textSize="@dimen/size_general_small" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_app_divider_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        app:srcCompat="@drawable/ic_pickup_dest" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical">
+
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:id="@+id/tvFareSrc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/activity_horizontal_padding"
+                            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@string/text_pickup_address"
+                            android:textColor="@color/color_black"
+                            android:textSize="@dimen/size_general_small" />
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:id="@+id/tvFareDest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/activity_horizontal_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@string/text_destination_address"
+                            android:textColor="@color/color_black"
+                            android:textSize="@dimen/size_general_small" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_app_divider_horizontal" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_bill_line"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_bill_line">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_bill_line"
+                            app:srcCompat="@drawable/time" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_eta"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_general_small" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <com.elluminati.eber.components.MyFontTextViewMedium
+                                    android:id="@+id/tvEta"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/color_app_text"
+                                    android:textSize="@dimen/size_eta_minfare" />
+
+                                <com.elluminati.eber.components.MyFontTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/activity_margin_register_button"
+                                    android:text="@string/text_unit_mins"
+                                    android:textColor="@color/color_app_text"
+                                    android:textSize="@dimen/size_label" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_bill_line"
+                            app:srcCompat="@drawable/distance" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.elluminati.eber.components.MyFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_distance"
+                                android:textAllCaps="false"
+                                android:textColor="@color/color_app_label"
+                                android:textSize="@dimen/size_general_small" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <com.elluminati.eber.components.MyFontTextViewMedium
+                                    android:id="@+id/tvFareDistance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/color_app_text"
+                                    android:textSize="@dimen/size_eta_minfare" />
+
+                                <com.elluminati.eber.components.MyFontTextView
+                                    android:id="@+id/tvFareUnit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/activity_margin_register_button"
+                                    android:text="@string/text_unit_kms"
+                                    android:textColor="@color/color_app_text"
+                                    android:textSize="@dimen/size_label" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvEtaMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_bill_line"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:scrollbars="vertical"
+                    android:text="@string/msg_estimate_fare"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/llSurgePricing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_surge_pricing"
+                            android:textColor="@color/color_app_label"
+                            android:textSize="@dimen/size_general_small" />
+
+                        <com.elluminati.eber.components.MyFontTextViewMedium
+                            android:id="@+id/tvSurgePricing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2.5x"
+                            android:textColor="@color/color_app_text"
+                            android:textSize="@dimen/size_referral_code" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:id="@+id/tvLabelMinFare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_min_fare_caps"
+                            android:textColor="@color/color_app_label"
+                            android:textSize="@dimen/size_general_small" />
+
+                        <com.elluminati.eber.components.MyFontTextViewMedium
+                            android:id="@+id/tvMainFareEta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/color_app_text"
+                            android:textSize="@dimen/size_referral_code" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.elluminati.eber.components.MyFontButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="@dimen/dialog_button_size"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:text="@string/text_close"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/size_general_small">
+
+                </com.elluminati.eber.components.MyFontButton>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.elluminati.eber.components.MyFontButton
+            android:id="@+id/btnGetFareEstimate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/selector_rect_shape_blue"
+            android:padding="@dimen/dimen_bill_margin_two"
+            android:text="@string/text_get_fare_estimate"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general_small"
+            android:visibility="gone" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

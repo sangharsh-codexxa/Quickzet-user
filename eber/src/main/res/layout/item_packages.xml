@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/cbSelectedPackages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvPackageName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:text="Sliver"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/size_general" />
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvPackagePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 100"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/size_general" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvPackageUnitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1hr and 10km"
+            android:textColor="@color/color_app_text"
+            android:textSize="@dimen/size_general_small" />
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvPackageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_padding"
+            android:maxLines="3"
+            android:minLines="1"
+            android:text="@string/msg_for_extra_charge"
+            android:textColor="@color/color_app_label"
+            android:textSize="@dimen/size_general_small" />
+    </LinearLayout>
+
+</LinearLayout>

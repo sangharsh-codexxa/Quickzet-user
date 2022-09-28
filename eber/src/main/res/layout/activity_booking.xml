@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_app_custom" />
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:id="@+id/tvOngoingTrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_round_rect_shape_green"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/dimen_bill_margin_two"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/dimen_bill_margin_two"
+        android:text="@string/text_on_going"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/size_general_small"
+        android:visibility="gone" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvOngoingTrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        card_view:cardCornerRadius="@dimen/card_view_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_bill_line">
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvOngoingTripStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/tick"
+                android:drawablePadding="@dimen/size_big_text"
+                android:text="@string/text_driver_arrvied"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_bill_margin_two"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/dimen_bill_line"
+                    android:paddingStart="@dimen/activity_margin_register_button"
+                    android:src="@drawable/blue_dot" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvOngoingTripAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/text_driver_arrvied"
+                        android:textColor="@color/color_app_label"
+                        android:textSize="@dimen/size_general_small" />
+                </HorizontalScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_round_rect_shape_green"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/dimen_bill_margin_two"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/dimen_bill_margin_two"
+        android:text="@string/text_up_coming_trip"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/size_general_small" />
+
+    <com.elluminati.eber.components.MyTitleFontTextView
+        android:id="@+id/tvNoItemBooking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:text="@string/msg_no_trip_item"
+        android:textColor="@color/color_app_divider_horizontal"
+        android:textSize="@dimen/size_dialog_notification"
+        android:visibility="visible" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

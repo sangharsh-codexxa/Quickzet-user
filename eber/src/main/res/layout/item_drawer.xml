@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_bill_line">
+
+    <ImageView
+        android:id="@+id/ivDrawerItemIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:id="@+id/tvDrawerItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_bill_margin_two"
+        android:maxLines="2"
+        android:text="@string/text_profile"
+        android:textAlignment="center"
+        android:textColor="@color/color_app_text"
+        android:textSize="@dimen/size_general_small"
+        app:autoSizeTextType="uniform" />
+
+
+</LinearLayout>

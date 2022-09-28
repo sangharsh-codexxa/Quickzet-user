@@ -1,0 +1,149 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion '30.0.3'
+
+    defaultConfig {
+        applicationId "com.quickzet.customer"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 5
+        versionName "1.0.4"
+        vectorDrawables.useSupportLibrary = true
+        resValue "string", "FACEBOOK_APP_ID", "462544212599920"
+        resValue "string", "FB_LOGIN_PROTOCOL_SCHEME", "fb462544212599920"
+        resValue "string", "FB_CLIENT_TOKEN", "1f44a6a72fbe8e2b1725ec95252fd4fb"
+        resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyA3daC99NcspDs27kkt7KlV4vNUYZ9gNTI"
+        firebaseCrashlytics {
+            mappingFileUploadEnabled false
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    if (project.hasProperty("project.properties")
+            && new File(project.property("project.properties")).exists()) {
+
+        Properties props = new Properties()
+        props.load(new FileInputStream(file(project.property("project.properties"))))
+
+        signingConfigs {
+            release {
+                storeFile file(props['keystore'])
+                storePassword props['keystore.password']
+                keyAlias props['keyAlias']
+                keyPassword props['keyPassword']
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            flavorDimensions "default"
+            buildConfigField "String", "BASE_URL", '"https://quickzet.com/"'
+            // signingConfig signingConfigs.release
+        }
+
+        staging {
+            flavorDimensions "default"
+            buildConfigField "String", "BASE_URL", '"https://quickzet.com/"'
+        }
+
+        developer {
+            flavorDimensions "default"
+            buildConfigField "String", "BASE_URL", '"https://quickzet.com/"'
+        }
+
+        local {
+            flavorDimensions "default"
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.134:5000/"'
+        }
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.4.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+
+    implementation "com.google.android.gms:play-services-maps:18.1.0"
+    implementation "com.google.android.gms:play-services-location:20.0.0"
+    implementation "com.google.android.gms:play-services-auth:20.2.0"
+    implementation 'com.google.android.libraries.places:places:2.6.0'
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.stripe:stripe-android:19.3.0'
+
+    implementation platform('com.google.firebase:firebase-bom:29.2.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-iid'
+
+    implementation 'com.firebaseui:firebase-ui-database:8.0.0'
+
+    implementation 'com.facebook.android:facebook-android-sdk:13.1.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'junit:junit:4.13.2'
+    implementation('io.socket:socket.io-client:2.0.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+    annotationProcessor 'androidx.annotation:annotation:1.3.0'
+    implementation 'com.google.android.play:core:1.10.3'
+
+    implementation 'com.instabug.library:instabug:10.13.0'
+    androidTestImplementation 'tools.fastlane:screengrab:2.1.1'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.45'
+}

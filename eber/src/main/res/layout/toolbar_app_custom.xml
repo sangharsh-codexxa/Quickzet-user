@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/appToolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/toolbar_bg_rounded"
+    android:elevation="@dimen/toolbar_elevation"
+    android:minHeight="?attr/actionBarSize"
+    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/ToolbarColoredBackArrow">
+
+
+    <com.elluminati.eber.components.MyAppTitleFontTextView
+        android:id="@+id/tvToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/color_app_text_dark"
+        android:textSize="@dimen/size_general"
+        android:transitionName="@string/toolbar_transient" />
+
+    <ImageView
+        android:id="@+id/ivToolbarIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:visibility="gone" />
+
+    <com.elluminati.eber.components.MyFontButton
+        android:id="@+id/btnToolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/activity_margin_mainscreen"
+        android:layout_gravity="end"
+        android:background="@android:color/transparent"
+        android:paddingStart="@dimen/dimen_bill_line"
+        android:paddingTop="@dimen/dimen_bill_margin_two"
+        android:paddingEnd="@dimen/dimen_bill_line"
+        android:paddingBottom="@dimen/dimen_bill_margin_two"
+        android:text="@string/text_cancel_trip"
+        android:textAllCaps="false"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/size_general_small"
+        android:visibility="gone" />
+</androidx.appcompat.widget.Toolbar>
+
+

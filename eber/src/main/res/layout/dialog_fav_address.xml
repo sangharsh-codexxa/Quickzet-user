@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+    <FrameLayout
+        android:id="@+id/frameMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.elluminati.eber.components.CustomEventMapView
+            android:id="@+id/favAddressMapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.elluminati.eber.components.CustomEventMapView>
+
+
+        <LinearLayout
+            android:id="@+id/llMapPin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/user_pin" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <com.elluminati.eber.components.MyFontButton
+                    android:id="@+id/btnConfirmFavAddress"
+                    android:layout_width="@dimen/app_button_size"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="@dimen/dimen_bill_line"
+                    android:layout_marginEnd="@dimen/dimen_bill_line"
+                    android:layout_marginBottom="@dimen/dimen_bill_second_top"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:text="@string/text_confirm"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/size_general_small"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivDialogLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="80dp"
+            app:backgroundTint="@color/color_white"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_my_location_black_24dp" />
+
+        <ImageView
+            android:id="@+id/ivDialogBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            app:srcCompat="@drawable/left_arrow" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardWhereTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="@color/color_white"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_bill_line"
+                    app:srcCompat="@drawable/place" />
+
+                <com.elluminati.eber.components.MyFontAutocompleteView
+                    android:id="@+id/acFavAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:dropDownAnchor="@id/cardWhereTo"
+                    android:dropDownVerticalOffset="5sp"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/text_type_address"
+                    android:imeOptions="actionDone"
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1"
+                    android:padding="@dimen/dimen_bill_line"
+                    android:textColor="@color/color_black"
+                    android:textColorHint="@color/color_app_hint_autocomplete"
+                    android:textCursorDrawable="@null"
+                    android:textSize="@dimen/size_general_small" />
+
+
+                <ImageView
+                    android:id="@+id/ivClearAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dimen_bill_line"
+                    app:srcCompat="@drawable/cross_white_icon" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llSelectPayment"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_bill_second_top"
+    android:layout_marginTop="@dimen/dimen_bill_second_top"
+    android:layout_marginEnd="@dimen/dimen_bill_second_top"
+    android:background="@null"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+
+    <LinearLayout
+        android:id="@+id/llMapCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/ivBtnCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:background="@drawable/blue_circle"
+            app:srcCompat="@drawable/card" />
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:background="@drawable/selector_rect_shape_dark_green"
+            android:paddingStart="@dimen/activity_horizontal_padding"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/activity_horizontal_padding"
+            android:paddingBottom="2dp"
+            android:text="@string/text_card"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llMapCash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/ivBtnCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:background="@drawable/blue_circle"
+            app:srcCompat="@drawable/cash" />
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:background="@drawable/selector_rect_shape_dark_green"
+            android:paddingStart="@dimen/activity_horizontal_padding"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/activity_horizontal_padding"
+            android:paddingBottom="2dp"
+            android:text="@string/text_cash"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_circle"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivSelectPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_padding"
+            android:layout_marginBottom="@dimen/activity_horizontal_padding"
+            app:backgroundTint="@color/color_app_button"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/card_white" />
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvSelectPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_padding"
+            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+            android:background="@drawable/selector_rect_shape_dark_green"
+            android:paddingStart="12dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="3dp"
+            android:text="@string/text_card"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general_small" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical"
+    tools:context=".AddFavouriteDriverActivity">
+
+    <include layout="@layout/toolbar_app_custom" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_padding"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin">
+
+        <com.elluminati.eber.components.MyFontEdittextView
+            android:id="@+id/etSearchDriver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/text_search_driver"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            app:drawableLeftCompat="@drawable/search_icon" />
+
+
+        <com.elluminati.eber.components.MyFontButton
+            android:id="@+id/btnSearchDriver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:background="@drawable/selector_rect_shape_blue"
+            android:text="@string/text_search"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/size_general_small"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <com.elluminati.eber.components.MyFontTextView
+        android:id="@+id/tvNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:text="@string/text_note_search_driver_by_email_or_phone_number_exclude_country_code"
+        android:textColor="@color/color_app_hint_autocomplete"
+        android:textSize="@dimen/size_label">
+
+    </com.elluminati.eber.components.MyFontTextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvFavouriteDriver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="visible" />
+
+
+    <com.elluminati.eber.components.MyTitleFontTextView
+        android:id="@+id/tvNoDriver"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/text_no_driver_found"
+        android:textColor="@color/color_app_divider_horizontal"
+        android:textSize="@dimen/size_dialog_notification"
+        android:visibility="gone" />
+
+</LinearLayout>

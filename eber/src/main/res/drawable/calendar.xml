@@ -1,0 +1,39 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="490.0"
+    android:viewportHeight="490.0">
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M381,57.6V5.2h-20.9v52.4H261.1V5.2h-20.9v52.4h-99.1V5.2H120.3v52.4H0v427.2h490V57.6H381zM120.3,78.4v30.8h20.9V78.4h99.1v30.8h20.9V78.4h99.1v30.8H381V78.4h88.1v77.5H20.9V78.4H120.3zM20.9,463.9v-287.1h448.3v287.1H20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M182.3,217.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M286.9,217.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M391.5,217.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M77.7,301.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M182.3,301.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M286.9,301.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M391.5,301.5h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M77.7,385.6h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M182.3,385.6h20.9v41.2h-20.9z" />
+    <path
+        android:fillColor="@color/color_app_button"
+        android:pathData="M286.9,385.6h20.9v41.2h-20.9z" />
+</vector>

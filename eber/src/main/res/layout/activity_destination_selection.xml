@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical"
+    tools:context=".DestinationSelectionActivity">
+
+    <include layout="@layout/toolbar_app_custom" />
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_app_theme_bg"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:id="@+id/cardAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_bg_rounded"
+            android:elevation="@dimen/toolbar_elevation"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="@dimen/activity_margin_register"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:srcCompat="@drawable/user_pin" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="15dp"
+                            android:background="#B2B2B2"/>
+                    </LinearLayout>
+
+                    <com.elluminati.eber.components.MyFontAutocompleteView
+                        android:id="@+id/acPickupLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/address_bg"
+                        android:dropDownAnchor="@id/cardAddress"
+                        android:dropDownVerticalOffset="2sp"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/text_pick_up_location"
+                        android:inputType="textNoSuggestions"
+                        android:paddingStart="@dimen/dimen_bill_line"
+                        android:paddingTop="@dimen/activity_margin_register"
+                        android:paddingEnd="@dimen/dimen_bill_line"
+                        android:paddingBottom="@dimen/activity_margin_register"
+                        android:singleLine="true"
+                        android:textColor="@color/color_black"
+                        android:textColorHint="@color/color_app_hint_autocomplete"
+                        android:textSize="@dimen/size_general_small" />
+
+
+                    <ImageView
+                        android:id="@+id/ivClearPickUpTextMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:padding="2dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/cross_grey_icon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTripStops"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:gravity="center"
+                        android:paddingBottom="15dp">
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="15dp"
+                            android:background="#B2B2B2"/>
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            app:srcCompat="@drawable/destination_pin" />
+
+                    </LinearLayout>
+
+
+
+                <com.elluminati.eber.components.MyFontAutocompleteView
+                    android:id="@+id/acDestinationLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/address_bg"
+                    android:dropDownAnchor="@id/cardAddress"
+                    android:dropDownVerticalOffset="2sp"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/text_hint_destination"
+                    android:inputType="textNoSuggestions"
+                    android:paddingStart="@dimen/dimen_bill_line"
+                    android:paddingTop="@dimen/activity_margin_register"
+                    android:paddingEnd="@dimen/dimen_bill_line"
+                    android:paddingBottom="@dimen/activity_margin_register"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textColorHint="@color/color_app_hint_autocomplete"
+                    android:textSize="@dimen/size_general_small" />
+
+
+
+                    <ImageView
+                        android:id="@+id/ivClearTextDestMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:padding="2dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/cross_grey_icon" />
+
+
+                </LinearLayout>
+
+                <requestFocus />
+
+                <LinearLayout
+                    android:id="@+id/llAddStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <com.elluminati.eber.components.MyFontTextView
+                        android:id="@+id/tvAddStop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_add_stop"
+                        android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/color_app_button"
+                        android:layout_gravity="end"
+                        android:textSize="@dimen/size_general_small"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    app:srcCompat="@drawable/home_icon" />
+
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvHomeAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:paddingEnd="5dp"
+                    android:text="@string/text_add_home"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small"
+                    app:drawableRightCompat="@drawable/plus" />
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvDeleteHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_delete"
+                    android:textColor="@color/color_app_button"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llWork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    app:srcCompat="@drawable/work_icon" />
+
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvWorkAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingEnd="5dp"
+                    android:text="@string/text_add_work"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small"
+                    app:drawableRightCompat="@drawable/plus" />
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvDeleteWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_delete"
+                    android:textColor="@color/color_app_button"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/dimen_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/dimen_horizontal_margin"
+            android:background="@color/color_app_divider_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llSetLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/place" />
+
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_set_location_on_map"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="@dimen/dimen_bill_second_top"
+                android:layout_marginEnd="@dimen/dimen_bill_second_top"
+                android:background="@color/color_app_divider_horizontal" />
+
+
+            <LinearLayout
+                android:id="@+id/llDestinationLater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/place" />
+
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:text="@string/text_add_destination_later"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.elluminati.eber.components.MyFontButton
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_rect_shape_blue"
+        android:text="@string/text_continue_or_next"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/size_general_small" />
+
+</LinearLayout>

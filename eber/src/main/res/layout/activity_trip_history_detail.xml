@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_app_theme_bg"
+    android:orientation="vertical"
+    tools:context=".TripHistoryDetailActivity">
+
+    <include layout="@layout/toolbar_app_custom" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_round_rect_shape_dark_green"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_bill_margin_two">
+
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginStart="@dimen/dimen_bill_line"-->
+            <!--android:layout_marginEnd="@dimen/dimen_bill_line"-->
+            <!--app:srcCompat="@drawable/dot_icon"/>-->
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvHistoryDetailDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_bill_line"
+                android:layout_marginEnd="@dimen/dimen_bill_line"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/size_general_small" />
+
+        </LinearLayout>
+
+        <com.elluminati.eber.components.MyFontTextView
+            android:id="@+id/tvHistoryTripNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_bill_line"
+            android:layout_marginEnd="@dimen/dimen_bill_line"
+            android:gravity="end|center_vertical"
+            android:text="@string/text_trip_id"
+            android:textAllCaps="true"
+            android:textColor="@color/color_app_text"
+            android:textSize="@dimen/size_general_small" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:animateLayoutChanges="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivHistoryDetailPhotoDialog"
+                android:layout_width="@dimen/driver_history_photo_size"
+                android:layout_height="@dimen/driver_history_photo_size"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ellipse" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvHistoryDetailDriverName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_general" />
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvHistoryTripCreateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.elluminati.eber.components.MyAppTitleFontTextView
+            android:id="@+id/tvHistoryDetailCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:textColor="@color/color_app_button"
+            android:textSize="@dimen/size_general" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/llFromAndTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/llMapAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        app:srcCompat="@drawable/user_pin" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="15dp"
+                        android:background="#B2B2B2"/>
+                </LinearLayout>
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvFareSrc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/text_pickup_address"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_general_small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTripStops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/activity_horizontal_padding">
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="15dp"
+                        android:background="#B2B2B2"/>
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        app:srcCompat="@drawable/destination_pin" />
+
+                </LinearLayout>
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvFareDest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/text_destination_address"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_general_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <!--<WebView-->
+    <!--android:id="@+id/webView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="@dimen/dimen_bill_margin_two"-->
+    <!--android:layout_weight="1"-->
+    <!--android:visibility="gone" />-->
+
+    <FrameLayout
+        android:id="@+id/mapFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <com.elluminati.eber.components.CustomEventMapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/ivFullScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+            android:layout_marginBottom="@dimen/activity_horizontal_padding"
+            app:srcCompat="@drawable/ic_fullscreen" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/llTimeAndDistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/activity_margin_register">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_margin_register"
+                app:srcCompat="@drawable/time" />
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvHistoryDetailTripTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general_small" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/activity_margin_register">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_margin_register"
+                app:srcCompat="@drawable/distance" />
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvHistoryDetailDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general_small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llHistoryRate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/activity_margin_register"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_margin_register"
+                app:srcCompat="@drawable/star_history" />
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvHistoryDetailRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_rate_driver"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general_small" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

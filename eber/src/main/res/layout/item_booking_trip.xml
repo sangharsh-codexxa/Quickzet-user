@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/llTripDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvBookingDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/dimen_bill_line"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:text="3rd Oct 2015"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general" />
+
+            <com.elluminati.eber.components.MyFontTextView
+                android:id="@+id/tvBookingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/dimen_bill_line"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="8:15 am"
+                android:textColor="@color/color_app_text"
+                android:textSize="@dimen/size_general" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/dimen_bill_margin_two"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/dimen_bill_line"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dimen_bill_line"
+                android:paddingStart="@dimen/activity_margin_register_button"
+                android:src="@drawable/grey_dot" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <com.elluminati.eber.components.MyFontTextView
+                    android:id="@+id/tvBookingAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/text_driver_arrvied"
+                    android:textColor="@color/color_app_label"
+                    android:textSize="@dimen/size_general_small" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnTripCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:src="@drawable/cross_balck_icon"
+            android:textAllCaps="false"
+            android:visibility="visible"
+            app:tint="@color/color_app_button_tint" />
+
+    </LinearLayout>
+</LinearLayout>
