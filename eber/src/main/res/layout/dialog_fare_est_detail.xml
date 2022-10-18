@@ -10,8 +10,7 @@
     app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="@dimen/dialog_elevation">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_app_theme_bg"
@@ -497,6 +496,19 @@
                     android:textColor="@color/color_app_text"
                     android:textSize="@dimen/size_general_small" />
 
+                <TextView
+                    android:id="@+id/tvEtaMessage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_bill_line"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:textStyle="bold"
+                    android:scrollbars="vertical"
+                    android:text="Toll &amp; parking charges will be excluded."
+                    android:textColor="@color/color_app_text"
+                    android:textSize="@dimen/size_general_small" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -556,14 +568,35 @@
                             android:gravity="center"
                             android:text="0"
                             android:textColor="@color/color_app_text"
-                            android:textSize="@dimen/size_referral_code" />
+                            android:textSize="30sp" />
 
                     </LinearLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="80dp">
+
+                <com.elluminati.eber.components.MyFontButton
+                    android:id="@+id/btnProceed"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/selector_rect_shape_blue"
+                    android:text="Proceed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/size_general_small"/>
+
                 <com.elluminati.eber.components.MyFontButton
                     android:id="@+id/btnCancel"
-                    android:layout_width="@dimen/dialog_button_size"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/activity_horizontal_margin"
@@ -574,6 +607,7 @@
                     android:textSize="@dimen/size_general_small">
 
                 </com.elluminati.eber.components.MyFontButton>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 

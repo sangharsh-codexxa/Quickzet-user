@@ -6,28 +6,28 @@
     android:viewportHeight="25.8">
 
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M23.7,13.7v9.4h-18v-9.4H23.7 M25.2,12.2H4.1v12.5h21.1V12.2L25.2,12.2z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M19.5,12.2l2.2,2.2c0,0.1,0,0.2,0,0.2c0,0.7,0.6,1.2,1.2,1.2c0.1,0,0.2,0,0.2,0l2.2,2.2v-5.8H19.5z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M 20.9 17.2 C 21.5627416998 17.2 22.1 17.7372583002 22.1 18.4 C 22.1 19.0627416998 21.5627416998 19.6 20.9 19.6 C 20.2372583002 19.6 19.7 19.0627416998 19.7 18.4 C 19.7 17.7372583002 20.2372583002 17.2 20.9 17.2 Z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M 14.7 15.1 C 16.7986820494 15.1 18.5 16.5774603256 18.5 18.4 C 18.5 20.2225396744 16.7986820494 21.7 14.7 21.7 C 12.6013179506 21.7 10.9 20.2225396744 10.9 18.4 C 10.9 16.5774603256 12.6013179506 15.1 14.7 15.1 Z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M 8.5 17.2 C 9.1627416998 17.2 9.7 17.7372583002 9.7 18.4 C 9.7 19.0627416998 9.1627416998 19.6 8.5 19.6 C 7.8372583002 19.6 7.3 19.0627416998 7.3 18.4 C 7.3 17.7372583002 7.8372583002 17.2 8.5 17.2 Z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M4.1,17.9l2.2-2.2c0.1,0,0.2,0,0.2,0c0.7,0,1.2-0.6,1.2-1.2c0-0.1,0-0.2,0-0.2l2.2-2.2H4.1V17.9z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M7.8,22.2c0-0.7-0.6-1.2-1.2-1.2c-0.1,0-0.2,0-0.2,0l-2.2-2.2v5.8h5.8l-2.2-2.2C7.8,22.4,7.8,22.3,7.8,22.2z" />
     <path
-        android:fillColor="#196076"
+        android:fillColor="#FF0000"
         android:pathData="M22.9,21c-0.7,0-1.2,0.6-1.2,1.2c0,0.1,0,0.2,0,0.2l-2.2,2.2h5.8v-5.8L23.1,21C23,21,22.9,21,22.9,21z" />
     <path
         android:fillColor="#B2B2B2"

@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:andorid="http://schemas.android.com/tools"
     android:background="@color/color_app_theme_bg"
     android:orientation="vertical">
 
@@ -404,8 +405,9 @@
 
             <com.elluminati.eber.components.MyFontTextView
                 android:id="@+id/tvDeleteAccount"
+                andorid:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
                 android:gravity="center"

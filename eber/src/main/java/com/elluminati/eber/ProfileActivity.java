@@ -58,7 +58,7 @@ import com.elluminati.eber.utils.ImageCompression;
 import com.elluminati.eber.utils.ImageHelper;
 import com.elluminati.eber.utils.Utils;
 import com.google.android.material.textfield.TextInputLayout;
-import com.theartofdev.edmodo.cropper.CropImage;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -421,7 +421,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
      * This method is used for crop the image which selected or captured by user.
      */
     private void beginCrop(Uri sourceUri) {
-        CropImage.activity(sourceUri).setGuidelines(com.theartofdev.edmodo.cropper.CropImageView.Guidelines.ON).start(this);
+//        CropImage.activity(sourceUri).setGuidelines(com.theartofdev.edmodo.cropper.CropImageView.Guidelines.ON).start(this);
     }
 
     private void setProfileImage(Uri imageUri) {
@@ -429,21 +429,21 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
     }
 
     private void handleCrop(int resultCode, Intent result) {
-        final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
-        if (resultCode == RESULT_OK) {
-            uploadImageFilePath = imageHelper.getRealPathFromURI(activityResult.getUri());
-            new ImageCompression(this).setImageCompressionListener(new ImageCompression.ImageCompressionListener() {
-                @Override
-                public void onImageCompression(String compressionImagePath) {
-                    setProfileImage(activityResult.getUri());
-                    uploadImageFilePath = compressionImagePath;
-
-                }
-            }).execute(uploadImageFilePath);
-
-        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-            Utils.showToast(activityResult.getError().getMessage(), this);
-        }
+//        final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
+//        if (resultCode == RESULT_OK) {
+//            uploadImageFilePath = imageHelper.getRealPathFromURI(activityResult.getUri());
+//            new ImageCompression(this).setImageCompressionListener(new ImageCompression.ImageCompressionListener() {
+//                @Override
+//                public void onImageCompression(String compressionImagePath) {
+//                    setProfileImage(activityResult.getUri());
+//                    uploadImageFilePath = compressionImagePath;
+//
+//                }
+//            }).execute(uploadImageFilePath);
+//
+//        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+//            Utils.showToast(activityResult.getError().getMessage(), this);
+//        }
     }
 
     @Override
@@ -458,9 +458,9 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
             case Const.ServiceCode.CHOOSE_PHOTO:
                 onSelectFromGalleryResult(data);
                 break;
-            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                handleCrop(resultCode, data);
-                break;
+//            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
+//                handleCrop(resultCode, data);
+//                break;
             case Const.PERMISSION_FOR_CAMERA_AND_EXTERNAL_STORAGE:
                 openPhotoDialog();
                 break;

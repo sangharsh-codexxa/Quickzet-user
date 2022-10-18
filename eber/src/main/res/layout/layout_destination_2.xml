@@ -46,7 +46,8 @@
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:contentDescription="@string/app_name"
-                        app:srcCompat="@drawable/user_pin" />
+                        app:srcCompat="@drawable/user_pin"
+                        app:tint="@color/color_app_button"/>
 
                     <View
                         android:layout_width="1dp"
@@ -97,10 +98,13 @@
                         android:background="#B2B2B2" />
 
                     <ImageView
+                        app:tint="@color/color_app_button"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:contentDescription="@string/app_name"
-                        app:srcCompat="@drawable/destination_pin" />
+                        app:srcCompat="@drawable/destination_pin"
+
+                       />
 
                 </LinearLayout>
 

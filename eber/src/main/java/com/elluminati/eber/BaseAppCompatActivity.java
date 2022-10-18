@@ -98,7 +98,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     private ConnectivityReceiverListener connectivityReceiverListener;
     private AdminApprovedListener adminApprovedListener;
     private NetworkHelper networkHelper;
-    public FirebaseAuth mAuth;
+    public  FirebaseAuth  mAuth;
 
     @SuppressLint("StaticFieldLeak")
     private static DialogSplitPaymentRequest splitPaymentRequestDialog;

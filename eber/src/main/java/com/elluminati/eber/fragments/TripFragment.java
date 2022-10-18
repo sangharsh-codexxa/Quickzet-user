@@ -26,6 +26,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -147,7 +149,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
 
     private static Timer tripTimer;
     private MyFontTextViewMedium tvDriverName, tvLabelCarId, tvLabelPlateNo, tvWaitTimeLabel;
-    private TextView tvTotalDistance, tvTotalTime, tvWaitTimeValue;
+    private TextView tvTotalDistance, tvTotalTime, tvWaitTimeValue,tvOtpTextview;
     private ImageView ivDriverPhoto;
     private FloatingActionButton ivSelectPayment;
     private FloatingActionButton ivTripTargetLocation;
@@ -167,6 +169,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
     private ArrayList<LatLng> markerList;
     private LatLng destLatLng, srcLatLng;
     private ImageButton ivBtnCard, ivBtnCash;
+    private CardView otpCardView;
     private LatLng providerLatLng;
     private CustomDialogVerifyAccount promoDialog;
     private Dialog tipDialog;
@@ -258,6 +261,8 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         tvRatting = tripFragView.findViewById(R.id.tvRatting);
         llTripStops = tripFragView.findViewById(R.id.llTripStops);
         tvSplitPayment = tripFragView.findViewById(R.id.tvSplitPayment);
+        tvOtpTextview  = tripFragView.findViewById(R.id.tv_otp);
+        otpCardView = tripFragView.findViewById(R.id.card_otpCard);
         return tripFragView;
     }
 
@@ -358,6 +363,12 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         switch (tripStatus) {
             case Const.ProviderStatus.PROVIDER_STATUS_ACCEPTED:
                 drawerActivity.closedTripDialog();
+                tvOtpTextview.setVisibility(View.VISIBLE);
+                String str = tripResponse.getTrip().getId();
+                String numberOnly = str.replaceAll("[^0-9]", "");
+                otpCardView.setVisibility(View.VISIBLE);
+                tvOtpTextview.setText(numberOnly.substring(numberOnly.length() - 4));
+
                 break;
             case Const.ProviderStatus.PROVIDER_STATUS_RESPONSE_PENDING:
                 drawerActivity.openTripDialog(this);
@@ -377,7 +388,13 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
     private void checkProviderStatus(int status) {
         switch (status) {
             case Const.ProviderStatus.PROVIDER_STATUS_ACCEPTED:
-                providerStatus = Const.ProviderStatus.PROVIDER_STATUS_STARTED;
+                               providerStatus = Const.ProviderStatus.PROVIDER_STATUS_STARTED;
+
+                String str = tripResponse.getTrip().getId();
+                String numberOnly = str.replaceAll("[^0-9]", "");
+                tvOtpTextview.setVisibility(View.VISIBLE);
+                otpCardView.setVisibility(View.VISIBLE);
+                tvOtpTextview.setText(numberOnly.substring(numberOnly.length() - 4));
                 break;
             case Const.ProviderStatus.PROVIDER_STATUS_STARTED:
                 if (providerStatus == status) {

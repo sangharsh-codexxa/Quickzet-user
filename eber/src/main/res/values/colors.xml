@@ -15,19 +15,19 @@
     <color name="color_app_theme_light">#000000</color>
     <color name="color_app_status_bar">#000000</color>
     <color name="color_app_red">#e33c3c</color>
-    <color name="color_app_button">#196076</color>
-    <color name="color_app_button_tint">#1f748f</color>
-    <color name="color_app_button_deselect">#55028d9f</color>
+    <color name="color_app_button">#FF0505</color>
+    <color name="color_app_button_tint">#FF0000</color>
+    <color name="color_app_button_deselect">#55FF8080</color>
     <color name="color_app_label">#888888</color>
     <color name="color_app_text">#5c5c5c</color>
     <color name="color_app_text_dark">#323232</color>
     <color name="color_app_hint_autocomplete">#888888</color>
-    <color name="color_app_blue_path">#47AAFF</color>
-    <color name="color_app_red_path">#196076</color>
+    <color name="color_app_blue_path">#FF0000</color>
+    <color name="color_app_red_path">#FF0000</color>
     <color name="color_black_transparent">#32000000</color>
     <color name="color_gray">#cecece</color>
     <color name="color_dark_grey">#535353</color>
-    <color name="color_app_button_dark">#026e7c</color>
+    <color name="color_app_button_dark">#FF0000</color>
     <color name="color_grey_tint_mode">#999797</color>
     <color name="color_gray_lite">#9ccecece</color>
     <color name="color_app_wallet_bg">#deececec</color>
@@ -39,7 +39,7 @@
 
     <!--Change this color when make clone app-->
 
-    <!--<color name="color_app_button">#196076</color>-->
+    <!--<color name="color_app_button">#FF0000</color>-->
     <!--<color name="color_app_button_tint">#307084</color>-->
     <!--<color name="color_app_green">#0cae81</color>-->
     <!--<color name="color_app_theme_green">#101224</color>-->

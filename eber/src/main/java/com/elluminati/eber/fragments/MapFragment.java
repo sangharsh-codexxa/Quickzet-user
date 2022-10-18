@@ -165,7 +165,8 @@ import retrofit2.Response;
  * Created by elluminati on 14-06-2016.
  */
 public class MapFragment extends BaseFragments implements OnMapReadyCallback, MainDrawerActivity.LocationReceivedListener, MainDrawerActivity.CancelTripListener, MainDrawerActivity.NetworkListener, MainDrawerActivity.TripSocketListener {
-
+    private NumberFormat currencyFormat;
+    private ETAResponse etaResponse;
     private final ArrayList<String> selectedGender = new ArrayList<>();
     private final ArrayList<String> selectedAccessibility = new ArrayList<>();
     private final ArrayList<String> selectedLanguage = new ArrayList<>();
@@ -327,12 +328,12 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         cardWhereTo.setOnClickListener(this);
         btnRideNow.setOnClickListener(this);
         ivRideLater.setOnClickListener(this);
-        llFareEstimate.setOnClickListener(this);
         llAddPayment.setOnClickListener(this);
         llHomeAddress.setOnClickListener(this);
         llWorkAddress.setOnClickListener(this);
         llAddAddress.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
+        llFareEstimate.setOnClickListener(this);
         btnApplyFilter.setOnClickListener(this);
         tvEberRental.setOnClickListener(this);
         tvEberRideShare.setOnClickListener(this);
@@ -348,6 +349,7 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         } else {
             tvCheckOurDelivery.setVisibility(View.GONE);
         }
+
 
         tvAddStop.setVisibility(drawerActivity.preferenceHelper.getAllowMultipleStops() ? View.VISIBLE : View.GONE);
 
@@ -563,10 +565,12 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
                 goToPromotionActivity();
                 break;
             case R.id.btnRideNow:
-                if (!isClickRideNow) {
-                    isClickRideNow = true;
-                    goWithRideEvent();
-                }
+
+//                if (!isClickRideNow) {
+                    showFareEstimation();
+//                    isClickRideNow = true;
+//                    goWithRideEvent();
+//                }
                 break;
             case R.id.ivRideLater:
                 openDatePickerDialog();
@@ -579,6 +583,7 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
                 }
                 break;
             case R.id.llFareEstimate:
+
                 showFareEstimation();
                 break;
             case R.id.llAddPayment:
@@ -668,6 +673,8 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
     }
 
     private void goWithRideEvent() {
+
+
         if (tvPaymentType.getText().toString().equals(drawerActivity.getResources().getString(R.string.text_pay_by))) {
             Utils.showToast(drawerActivity.getResources().getString(R.string.msg_please_select_payment_mode), drawerActivity);
             isClickRideNow = false;
@@ -678,13 +685,17 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
             } else {
                 openFixedRateDialog(false);
             }
-        } else {
+        }
+        else {
             openFixedRateDialog(true);
         }
+
     }
 
 
+
     private void showFareEstimation() {
+
         if (!vehicleTypeList.isEmpty() || !poolVehicleTypeList.isEmpty()) {
             SurgeResult surgeResult = checkSurgeTimeApply(cityType.getSurgeHours(), drawerActivity.currentTrip.getServerTime(), drawerActivity.currentTrip.getCityTimeZone(), false, 0);
             if (drawerActivity.addressUtils.getDestinationAddress().isEmpty()) {
@@ -971,7 +982,13 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
                 }
 
                 @Override
-                public void selectDestination() {
+                public void onProceed(){
+                    goWithRideEvent();
+                    dismiss();
+                }
+
+                @Override
+                public void selectDestination(){
                 }
             };
             customDialog.notifyDataSetChange(cityType.getTypeDetails().getTypename(), cityType.getBasePrice(), cityType.getBasePriceDistance(), cityType.getPricePerUnitDistance(), cityType.getPriceForTotalTime(), cityType.getMaxSpace(), CurrentTrip.getInstance().getEstimatedFareTotal(), CurrentTrip.getInstance().getEstimatedFareTime(), drawerActivity.addressUtils.getPickupAddress(), drawerActivity.addressUtils.getDestinationAddress(), CurrentTrip.getInstance().getCurrencyCode(), CurrentTrip.getInstance().getEstimatedFareDistance(), cityType.getTax(), Utils.showUnit(drawerActivity, CurrentTrip.getInstance().getUnit()), cityType.getCancellationFee(), cityType.getTypeDetails().getTypeImageUrl(), isDestinationSelect, surgeResult.getSurgeMultiplier(), isSurgePricing, CurrentTrip.getInstance().getTripType());
@@ -981,7 +998,6 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
 
     /**
      * use for get duration and distance between user_pin and destination_pin.
-     *
      * @param srcLatLng
      * @param destLatLng
      */
@@ -1240,15 +1256,17 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
                 @Override
                 public void onResponse(Call<ETAResponse> call, Response<ETAResponse> response) {
                     if (ParseContent.getInstance().isSuccessful(response)) {
-                        ETAResponse etaResponse = response.body();
+                         etaResponse = response.body();
                         if (etaResponse.isSuccess()) {
                             CurrentTrip currentTrip = CurrentTrip.getInstance();
                             currentTrip.setEstimatedFareTotal(etaResponse.getEstimatedFare());
                             currentTrip.setEstimatedFareDistance(Double.valueOf(etaResponse.getDistance()));
                             currentTrip.setEstimatedFareTime(etaResponse.getTime());
                             currentTrip.setTripType(Integer.valueOf(etaResponse.getTripType()));
-                            NumberFormat currencyFormat = drawerActivity.currencyHelper.getCurrencyFormat(CurrentTrip.getInstance().getCurrencyCode());
-                            tvFareEst.setText(currencyFormat.format(etaResponse.getEstimatedFare()));
+                            currencyFormat = drawerActivity.currencyHelper.getCurrencyFormat(CurrentTrip.getInstance().getCurrencyCode());
+                          tvFareEst.setText(currencyFormat.format(etaResponse.getEstimatedFare()));
+
+
                             Utils.hideCustomProgressDialog();
                         } else {
                             Utils.hideCustomProgressDialog();
@@ -1306,7 +1324,6 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         if (vehicleTypeList.size() > 0 || poolVehicleTypeList.size() > 0) {
             cityType = CurrentTrip.getInstance().getVehiclePriceType() == Const.TYPE_SHARE_TRIP_PRICE ? poolVehicleTypeList.get(position) : vehicleTypeList.get(position);
             setVehiclePinOnMap(cityType.getTypeDetails().getMapPinImageUrl());
-            tvFareEst.setText("--");
             if (!TextUtils.isEmpty(drawerActivity.addressUtils.getDestinationAddress())) {
                 Utils.showCustomProgressDialog(drawerActivity, "", false, null);
                 getFareEstimate(fareEstDistance, fareEstTime, cityType.getId());
@@ -2003,6 +2020,7 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         if (isSchedule) {
             btnRideNow.setText(drawerActivity.getResources().getString(R.string.text_schedule_ride) + "\n" + textRideLaterBtn);
             btnRideNow.setEnabled(true);
+
             btnRideNow.setAlpha(1.0f);
         } else {
             btnRideNow.setText(drawerActivity.getResources().getString(R.string.text_ride_now));

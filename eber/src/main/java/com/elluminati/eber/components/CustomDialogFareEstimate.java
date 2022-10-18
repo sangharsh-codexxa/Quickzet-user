@@ -33,6 +33,7 @@ import java.text.NumberFormat;
 public abstract class CustomDialogFareEstimate extends Dialog implements View.OnClickListener {
     private final MyFontButton btnGetFareEstimate;
     private final MyFontButton btnCancel;
+    private final MyFontButton btnProceed;
     private final MyFontTextViewMedium tvMinFare;
     private final MyFontTextViewMedium tvPerMile;
     private final MyFontTextViewMedium tvTimeCost;
@@ -81,9 +82,12 @@ public abstract class CustomDialogFareEstimate extends Dialog implements View.On
         tvFareDest.setOnClickListener(this);
         tvFareSrc = findViewById(R.id.tvFareSrc);
         btnCancel = findViewById(R.id.btnCancel);
+
         tvTax = findViewById(R.id.tvTax);
         tvEtaMessage = findViewById(R.id.tvEtaMessage);
         btnCancel.setOnClickListener(this);
+        btnProceed = findViewById(R.id.btnProceed);
+        btnProceed.setOnClickListener(this);
         tvVehicleType = findViewById(R.id.tvVehicleTypeName);
         tvFareDistance = findViewById(R.id.tvFareDistance);
         tvFareUnit = findViewById(R.id.tvFareUnit);
@@ -191,6 +195,9 @@ public abstract class CustomDialogFareEstimate extends Dialog implements View.On
             case R.id.btnCancel:
                 onBack();
                 break;
+            case R.id.btnProceed:
+                onProceed();
+                break;
             case R.id.tvFareDest:
                 selectDestination();
                 break;
@@ -203,6 +210,7 @@ public abstract class CustomDialogFareEstimate extends Dialog implements View.On
     public abstract void onClickFareEstimate(boolean isDestinationSelect);
 
     public abstract void onBack();
+    public abstract void onProceed();
 
     public abstract void selectDestination();
 
