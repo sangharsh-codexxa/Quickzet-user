@@ -1,5 +1,7 @@
 package com.elluminati.eber.fragments;
 
+
+import static android.view.View.GONE;
 import static com.elluminati.eber.utils.Const.REQUEST_CHECK_SETTINGS;
 
 import android.Manifest;
@@ -129,6 +131,7 @@ import com.stripe.android.ApiResultCallback;
 import com.stripe.android.PaymentIntentResult;
 import com.stripe.android.model.ConfirmPaymentIntentParams;
 import com.stripe.android.model.PaymentIntent;
+import com.stripe.android.model.StripeIntent;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -276,6 +279,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         llSelectPayment.setVisibility(View.VISIBLE);
         ivSelectPayment.setOnClickListener(this);
         setUpMapScreenUI();
+
         btnTripCancel.setText(drawerActivity.getResources().getString(R.string.text_cancel_trip));
         btnTripCancel.setOnClickListener(this);
         btnCallDriver.setOnClickListener(this);
@@ -288,7 +292,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         tvDestinationAddress.setOnClickListener(this);
         tvSplitPayment.setOnClickListener(this);
         markerList = new ArrayList<>();
-        tvSplitPayment.setVisibility(drawerActivity.preferenceHelper.getIsSplitPayment() ? View.VISIBLE : View.GONE);
+        tvSplitPayment.setVisibility(drawerActivity.preferenceHelper.getIsSplitPayment() ? View.VISIBLE : GONE);
         initPaymentGatewaySpinner();
         upDateUiWhenFixedRateTrip(true);
         initFirebaseChat();
@@ -387,9 +391,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
      */
     private void checkProviderStatus(int status) {
         switch (status) {
-            case Const.ProviderStatus.PROVIDER_STATUS_ACCEPTED:
-                               providerStatus = Const.ProviderStatus.PROVIDER_STATUS_STARTED;
-
+            case Const.ProviderStatus.PROVIDER_STATUS_ACCEPTED : providerStatus = Const.ProviderStatus.PROVIDER_STATUS_STARTED;
                 String str = tripResponse.getTrip().getId();
                 String numberOnly = str.replaceAll("[^0-9]", "");
                 tvOtpTextview.setVisibility(View.VISIBLE);
@@ -397,6 +399,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                 tvOtpTextview.setText(numberOnly.substring(numberOnly.length() - 4));
                 break;
             case Const.ProviderStatus.PROVIDER_STATUS_STARTED:
+
                 if (providerStatus == status) {
                     goWithStatusStarted();
                 }
@@ -410,12 +413,18 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                 }
                 break;
             case Const.ProviderStatus.PROVIDER_STATUS_TRIP_STARTED:
+                stopWaitTimeCountDownTimer();
                 if (providerStatus == status) {
                     goWithStatusTripStarted();
                 }
+                btnTripCancel.setVisibility(GONE);
+                llWaitTime.setVisibility(GONE);
+                tvLabelCarId.setText(getString(R.string.text_total_time));
+
+
                 setTotalTime(CurrentTrip.getInstance().getTotalTime());
                 setTotalDistance(CurrentTrip.getInstance().getTotalDistance());
-                startTripTimeCounter(CurrentTrip.getInstance().getTotalTime());
+//              startTripTimeCounter(CurrentTrip.getInstance().getTotalTime());
                 closeTripCancelDialog();
                 break;
             case Const.ProviderStatus.PROVIDER_STATUS_TRIP_END:
@@ -429,6 +438,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
     }
 
     private void goWithStatusStarted() {
+        tvLabelPlateNo.setText(getResources().getString(R.string.text_total_distance));
         providerStatus = Const.ProviderStatus.PROVIDER_STATUS_ARRIVED;
         openStatusNotifyDialog(drawerActivity.getResources().getString(R.string.text_driver_started));
         playNotificationSound();
@@ -451,6 +461,8 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         providerStatus = Const.ProviderStatus.PROVIDER_STATUS_TRIP_END;
         btnTripCancel.setText(drawerActivity.getResources().getString(R.string.text_sos));
         openStatusNotifyDialog(drawerActivity.getResources().getString(R.string.text_trip_started));
+
+
         playNotificationSound();
         tvLabelCarId.setText(drawerActivity.getResources().getString(R.string.text_total_time));
         tvLabelPlateNo.setText(drawerActivity.getResources().getString(R.string.text_total_distance));
@@ -977,15 +989,15 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                     switch (checkedId) {
                         case R.id.rbReasonOne:
                             cancelTripReason = rbReasonOne.getText().toString();
-                            etOtherReason.setVisibility(View.GONE);
+                            etOtherReason.setVisibility(GONE);
                             break;
                         case R.id.rbReasonTwo:
                             cancelTripReason = rbReasonTwo.getText().toString();
-                            etOtherReason.setVisibility(View.GONE);
+                            etOtherReason.setVisibility(GONE);
                             break;
                         case R.id.rbReasonThree:
                             cancelTripReason = rbReasonThree.getText().toString();
-                            etOtherReason.setVisibility(View.GONE);
+                            etOtherReason.setVisibility(GONE);
                             break;
                         case R.id.rbReasonOther:
                             etOtherReason.setVisibility(View.VISIBLE);
@@ -1019,7 +1031,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
 
     private void checkPaymentModeAndPromoAvailable(ArrayList<PaymentGateway> selectedPaymentList) {
         if (drawerActivity.preferenceHelper.getPaymentCardAvailable() == Const.NOT_AVAILABLE) {
-            btnTripCard.setVisibility(View.GONE);
+            btnTripCard.setVisibility(GONE);
             ivSelectPayment.setClickable(false);
             selectedPaymentList.clear();
             PaymentGateway paymentGateway = new PaymentGateway();
@@ -1027,7 +1039,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
             paymentGateway.setName(drawerActivity.getResources().getString(R.string.text_cash));
             selectedPaymentList.add(paymentGateway);
         } else if (drawerActivity.preferenceHelper.getPaymentCashAvailable() == Const.NOT_AVAILABLE) {
-            btnTripCash.setVisibility(View.GONE);
+            btnTripCash.setVisibility(GONE);
             ivSelectPayment.setClickable(false);
         } else {
             PaymentGateway paymentGateway = new PaymentGateway();
@@ -1061,8 +1073,8 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                btnTripCard.setVisibility(View.GONE);
-                btnTripCash.setVisibility(View.GONE);
+                btnTripCard.setVisibility(GONE);
+                btnTripCash.setVisibility(GONE);
             }
         }, 300);
         isPaymentShow = false;
@@ -1519,9 +1531,10 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
      */
     private void stopWaitTimeCountDownTimer() {
         if (isWaitTimeCountDownTimerStart) {
-            updateUiForWaitTime(false);
+
             isWaitTimeCountDownTimerStart = false;
             countDownTimer.cancel();
+            updateUiForWaitTime(false);
         }
     }
 
@@ -1569,18 +1582,18 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
     }
 
     /**
-     * This method is use to show/hide waiting timer.
+     * This method is use to show/hide waiting timer.Trip
      *
      * @param isUpdate
      */
     private void updateUiForWaitTime(boolean isUpdate) {
         if (isUpdate) {
-            //llCarAndTimeDetail.setVisibility(View.GONE);
-            llTripNo.setVisibility(View.GONE);
+//          llCarAndTimeDetail.setVisibility(View.GONE);
+            llTripNo.setVisibility(GONE);
             llWaitTime.setVisibility(View.VISIBLE);
         } else {
-            llWaitTime.setVisibility(View.GONE);
-            llTripNo.setVisibility(View.VISIBLE);
+//            llWaitTime.setVisibility(View.VISIBLE);
+            llTripNo.setVisibility(View.GONE);
             llCarAndTimeDetail.setVisibility(View.VISIBLE);
         }
 
@@ -1616,8 +1629,8 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                         stringBuilder.append(map.get(Const.google.DESTINATION_ADDRESSES) + " ");
                         stringBuilder.append(drawerActivity.getResources().getString(R.string.text_with) + " ");
                         stringBuilder.append(drawerActivity.currentTrip.getProviderFirstName() + " " + drawerActivity.currentTrip.getProviderLastName() + " ");
-                        stringBuilder.append(drawerActivity.getResources().getString(R.string.text_in) + " ");
-                        stringBuilder.append(map.get(Const.google.TEXT));
+//                        stringBuilder.append(map.get(Const.google.TEXT+" "));
+                        stringBuilder.append("\n" + "https://www.google.com/maps/search/?api=1&query="+destLatLng.latitude+","+destLatLng.longitude);
                         shareEta(stringBuilder.toString());
                     }
 
@@ -1883,6 +1896,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                                 tvTotalTime.setText(drawerActivity.currentTrip.getProviderCarModal());
                                 tvTotalDistance.setText(drawerActivity.currentTrip.getProviderCarNumber());
                             }
+
                             tvRatting.setText(drawerActivity.currentTrip.getRating());
                             List<Double> locations = response.body().getProvider().getProviderLocation();
                             if (locations != null && !locations.isEmpty()) {
@@ -1964,7 +1978,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                             checkProviderStatus(drawerActivity.currentTrip.getIsProviderStatus());
 
                             if (tripResponse.getTrip().isRideShare()) {
-                                tvSplitPayment.setVisibility(View.GONE);
+                                tvSplitPayment.setVisibility(GONE);
                                 tvDestinationAddress.setOnClickListener(null);
                             }
 
@@ -1980,7 +1994,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
                                     acStopLocation.setText(Utils.trimString(tripStopAddresses.getAddress()));
                                     acStopLocation.setTextColor(getResources().getColor(R.color.color_app_text));
                                     ImageView ivClearStopTextMap = stopView.findViewById(R.id.ivClearStopTextMap);
-                                    ivClearStopTextMap.setVisibility(View.GONE);
+                                    ivClearStopTextMap.setVisibility(GONE);
                                     acStopLocation.setInputType(InputType.TYPE_NULL);
                                     acStopLocation.setEnabled(false);
                                     acStopLocation.setPadding(
@@ -2130,7 +2144,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        int visible = View.GONE;
+        int visible = GONE;
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
             Message chatMessage = snapshot.getValue(Message.class);
             if (chatMessage != null) {
@@ -2211,6 +2225,9 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
     }
 
     private void setTotalDistance(double distance) {
+        if(CurrentTrip.getInstance().getIsProviderStatus() == Const.ProviderStatus.PROVIDER_STATUS_TRIP_STARTED){
+            tvLabelPlateNo.setText("Total Distance");
+        }
         tvTotalDistance.setText(String.format("%s %s", drawerActivity.parseContent.twoDigitDecimalFormat.format(distance), unit));
 
     }
@@ -2297,7 +2314,7 @@ public class TripFragment extends BaseFragments implements OnMapReadyCallback, M
         };
         dialogPendingPayment.show();
         if (errorCode == Const.ERROR_CODE_ADD_CARD_FIRST) {
-            dialogPendingPayment.findViewById(R.id.btnYes).setVisibility(View.GONE);
+            dialogPendingPayment.findViewById(R.id.btnYes).setVisibility(GONE);
             MyFontButton btnNo = dialogPendingPayment.findViewById(R.id.btnNo);
             btnNo.setVisibility(View.VISIBLE);
             btnNo.setBackground(ResourcesCompat.getDrawable(drawerActivity.getResources(), R.drawable.selector_rect_shape_blue, null));

@@ -29,6 +29,7 @@ import com.elluminati.eber.adapter.DrawerAdapter;
 import com.elluminati.eber.adapter.PlaceAutocompleteAdapter;
 import com.elluminati.eber.components.CustomDialogBigLabel;
 import com.elluminati.eber.components.CustomDialogEnable;
+import com.elluminati.eber.components.CustomLanguageDialog;
 import com.elluminati.eber.components.CustomTripDialog;
 import com.elluminati.eber.components.DialogSplitPayment;
 import com.elluminati.eber.components.TopSheet.TopSheetBehavior;
@@ -65,6 +66,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainDrawerActivity extends BaseAppCompatActivity implements LocationHelper.OnLocationReceived {
+
+    private CustomLanguageDialog customLanguageDialog;
 
     public boolean isScheduleStart;
     public Location currentLocation;
@@ -305,7 +308,8 @@ public class MainDrawerActivity extends BaseAppCompatActivity implements Locatio
                         goToSettingsActivity();
                         break;
                     case 7:
-                        goToFavouriteDriverActivity();
+                        openLanguageDialog();
+//                        goToFavouriteDriverActivity();
                         break;
                     case 8:
                         goToContactUsActivity();
@@ -315,6 +319,26 @@ public class MainDrawerActivity extends BaseAppCompatActivity implements Locatio
                 }
             }
         }));
+
+    }
+    private void openLanguageDialog() {
+        if (customLanguageDialog != null && customLanguageDialog.isShowing()) {
+            return;
+        }
+        customLanguageDialog = new CustomLanguageDialog(this) {
+            @Override
+            public void onSelect(String languageName, String languageCode) {
+//                tvLanguage.setText(languageName);
+                 if (!TextUtils.equals(preferenceHelper.getLanguageCode(), languageCode)) {
+                    preferenceHelper.putLanguageCode(languageCode);
+                    finishAffinity();
+                    restartApp();
+                }
+                dismiss();
+
+            }
+        };
+        customLanguageDialog.show();
     }
 
     /**

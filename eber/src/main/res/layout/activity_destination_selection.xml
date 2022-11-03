@@ -40,18 +40,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="15dp"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="15dp">
 
                         <ImageView
                             android:layout_width="10dp"
@@ -61,7 +61,7 @@
                         <View
                             android:layout_width="1dp"
                             android:layout_height="15dp"
-                            android:background="#B2B2B2"/>
+                            android:background="#B2B2B2" />
                     </LinearLayout>
 
                     <com.elluminati.eber.components.MyFontAutocompleteView
@@ -110,22 +110,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:paddingBottom="15dp">
+
                         <View
                             android:layout_width="1dp"
                             android:layout_height="15dp"
-                            android:background="#B2B2B2"/>
+                            android:background="#B2B2B2" />
+
                         <ImageView
                             android:layout_width="10dp"
                             android:layout_height="10dp"
@@ -134,27 +136,25 @@
                     </LinearLayout>
 
 
-
-                <com.elluminati.eber.components.MyFontAutocompleteView
-                    android:id="@+id/acDestinationLocation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/address_bg"
-                    android:dropDownAnchor="@id/cardAddress"
-                    android:dropDownVerticalOffset="2sp"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/text_hint_destination"
-                    android:inputType="textNoSuggestions"
-                    android:paddingStart="@dimen/dimen_bill_line"
-                    android:paddingTop="@dimen/activity_margin_register"
-                    android:paddingEnd="@dimen/dimen_bill_line"
-                    android:paddingBottom="@dimen/activity_margin_register"
-                    android:singleLine="true"
-                    android:textColor="@color/color_black"
-                    android:textColorHint="@color/color_app_hint_autocomplete"
-                    android:textSize="@dimen/size_general_small" />
-
+                    <com.elluminati.eber.components.MyFontAutocompleteView
+                        android:id="@+id/acDestinationLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/address_bg"
+                        android:dropDownAnchor="@id/cardAddress"
+                        android:dropDownVerticalOffset="2sp"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/text_hint_destination"
+                        android:inputType="textNoSuggestions"
+                        android:paddingStart="@dimen/dimen_bill_line"
+                        android:paddingTop="@dimen/activity_margin_register"
+                        android:paddingEnd="@dimen/dimen_bill_line"
+                        android:paddingBottom="@dimen/activity_margin_register"
+                        android:singleLine="true"
+                        android:textColor="@color/color_black"
+                        android:textColorHint="@color/color_app_hint_autocomplete"
+                        android:textSize="@dimen/size_general_small" />
 
 
                     <ImageView
@@ -176,29 +176,67 @@
                     android:id="@+id/llAddStop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:gravity="center"
+                    android:orientation="horizontal"
                     android:visibility="visible">
 
                     <com.elluminati.eber.components.MyFontTextView
                         android:id="@+id/tvAddStop"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_add_stop"
+                        android:layout_gravity="end"
                         android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                        android:text="@string/text_add_stop"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/color_app_button"
-                        android:layout_gravity="end"
-                        android:textSize="@dimen/size_general_small"/>
+                        android:textSize="@dimen/size_general_small" />
 
                 </LinearLayout>
 
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_HistoryList"
+                    android:layout_width="match_parent"
+                    android:elevation="0dp"
+                    app:cardElevation="0dp"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.elluminati.eber.components.MyFontTextView
+                            android:layout_width="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/activity_horizontal_padding"
+                            android:text="Recent Searches"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/color_app_button"
+                            android:textSize="@dimen/size_general_small" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_recentPlace"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_recent_trip_history" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
 
         </LinearLayout>
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -360,7 +398,8 @@
 
         </LinearLayout>
 
-
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
     <com.elluminati.eber.components.MyFontButton
@@ -372,9 +411,9 @@
         android:layout_marginBottom="@dimen/activity_horizontal_margin"
         android:background="@drawable/selector_rect_shape_blue"
         android:text="@string/text_continue_or_next"
-        android:visibility="gone"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/size_general_small" />
+        android:textSize="@dimen/size_general_small"
+        android:visibility="gone" />
 
 </LinearLayout>

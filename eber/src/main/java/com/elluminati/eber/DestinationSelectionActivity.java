@@ -18,15 +18,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.elluminati.eber.adapter.PlaceAutocompleteAdapter;
+import com.elluminati.eber.adapter.RecentTripHistoryAdapter;
 import com.elluminati.eber.components.CustomAddressChooseDialog;
 import com.elluminati.eber.components.MyFontAutocompleteView;
 import com.elluminati.eber.components.MyFontButton;
 import com.elluminati.eber.components.MyFontTextView;
+import com.elluminati.eber.models.datamodels.TripHistory;
 import com.elluminati.eber.models.datamodels.TripStopAddresses;
 import com.elluminati.eber.models.responsemodels.IsSuccessResponse;
+import com.elluminati.eber.models.responsemodels.TripHistoryResponse;
 import com.elluminati.eber.models.singleton.AddressUtilsEber;
 import com.elluminati.eber.models.singleton.CurrentTrip;
 import com.elluminati.eber.parse.ApiClient;
@@ -48,6 +54,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -72,7 +80,8 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
     private TripStopAddresses stopAddresses;
     private final ArrayList<TripStopAddresses> tripStopAddresses = new ArrayList<>();
     private MyFontButton btnContinue;
-
+    private RecyclerView rvTripHistory;
+    CardView cardView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +133,9 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
     }
 
     private void initViews() {
+        rvTripHistory = findViewById(R.id.rv_recentPlace);
+         cardView = findViewById(R.id.card_HistoryList);
+
         acDestinationAddress = findViewById(R.id.acDestinationLocation);
         acPickupAddress = findViewById(R.id.acPickupLocation);
         ivClearPickUpText = findViewById(R.id.ivClearPickUpTextMap);
@@ -163,6 +175,8 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
 
             }
         });
+
+
         acPickupAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -175,8 +189,90 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
             }
         });
         acPickupAddress.requestFocus();
-    }
 
+        getTripHistory("","",true);
+
+    }
+    private void getTripHistory(String startDate, String endDate,boolean clearHistory) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvTripHistory.setLayoutManager(linearLayoutManager);
+
+        RecentTripHistoryAdapter tripHistoryAdaptor;
+
+        List<TripHistory> tripHistoriesList = new ArrayList<>();
+        final int[] pageNumber = {0};
+
+
+
+        if (clearHistory) {
+            pageNumber[0] = 1;
+            tripHistoriesList.clear();
+        }
+        Utils.showCustomProgressDialog(this, getResources().getString(R.string.msg_waiting_for_history), false, null);
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(Const.Params.USER_ID, preferenceHelper.getUserId());
+            jsonObject.put(Const.Params.TOKEN, preferenceHelper.getSessionToken());
+            String startDateEn = startDate;
+            String endDateEn = endDate;
+
+            jsonObject.put(Const.Params.START_DATE, startDateEn);
+            jsonObject.put(Const.Params.END_DATE, endDateEn);
+            jsonObject.put(Const.Params.PAGE, pageNumber[0]);
+            Call<TripHistoryResponse> call = ApiClient.getClient().create(ApiInterface.class).getTripHistory(ApiClient.makeJSONRequestBody(jsonObject));
+            call.enqueue(new Callback<TripHistoryResponse>() {
+                @Override
+                public void onResponse(Call<TripHistoryResponse> call, Response<TripHistoryResponse> response) {
+                    if (parseContent.isSuccessful(response)) {
+                        if (response.body().isSuccess()) {
+                            if (response.body().getTrips() != null && !response.body().getTrips().isEmpty()) {
+//                                pageNumber[0]++;
+                                tripHistoriesList.addAll(response.body().getTrips());
+                                Collections.reverse(tripHistoriesList);
+                            }
+//                            getShortHistoryList(tripHistoriesList);
+//                            if (tripHistoryAdaptor == null) {
+//                                tripHistoryAdaptor = new TripHistoryAdaptor(TripHistoryActivity.this, tripHistoryShortList, separatorSet);
+//                                rcvHistory.setAdapter(tripHistoryAdaptor);
+//                            } else {
+//                            }
+//                            updateUi(tripHistoryShortList.size() > 0);
+                            Utils.hideCustomProgressDialog();
+
+
+                            RecentTripHistoryAdapter.ItemClickListener itemClickListener = place -> {
+
+                                acDestinationAddress.setText(place);
+//                                setDestinationAddress(place);
+//                                updateCityData(address.getCountryName());
+                                if (!preferenceHelper.getAllowMultipleStops() && !TextUtils.isEmpty(acDestinationAddress.getText().toString().trim()) && AddressUtilsEber.getInstance().getDestinationLatLng() != null) {
+                                    goToMapFragment(Const.RESULT_OK);
+                                }
+
+                            };
+
+                            RecentTripHistoryAdapter recentTripHistory = new RecentTripHistoryAdapter(tripHistoriesList,itemClickListener);
+                            rvTripHistory.setAdapter(recentTripHistory);
+
+                        } else {
+//                            updateUi(false);
+                            Utils.hideCustomProgressDialog();
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<TripHistoryResponse> call, Throwable t) {
+                    AppLog.handleThrowable(TripHistoryActivity.class.getSimpleName(), t);
+
+                }
+            });
+        } catch (JSONException e) {
+            AppLog.handleException(Const.Tag.TRIP_HISTORY_ACTIVITY, e);
+        }
+    }
 
     private void setUpData() {
         acPickupAddress.setText(addressUtils.getTrimedPickupAddress());
@@ -226,6 +322,7 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
      * Use for initialize pickup auto complete .
      */
     private void initPickupAutoComplete() {
+
         acPickupAddress.setAdapter(autocompleteAdapter);
         acPickupAddress.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -263,6 +360,7 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
      */
     private void initDestinationAutoComplete() {
         acDestinationAddress.setAdapter(autocompleteAdapter);
+
         acDestinationAddress.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -279,7 +377,9 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 if (s.length() != 0) {
+                    cardView.setVisibility(View.GONE);
                     ivClearDestTextMap.setVisibility(View.VISIBLE);
                 } else {
                     ivClearDestTextMap.setVisibility(View.VISIBLE);
@@ -411,6 +511,7 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
                 break;
             case R.id.ivClearTextDestMap:
                 acDestinationAddress.getText().clear();
+                cardView.setVisibility(View.VISIBLE);
                 acDestinationAddress.requestFocus();
                 break;
             case R.id.llSetLocation:
@@ -843,6 +944,13 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
     public void onLocationChanged(Location location) {
 
     }
+
+
+
+//    @Override
+//    public void onClick(String position) {
+//        acDestinationAddress.setText(position);
+//    }
 
     private class GetCountryFromLocation extends AsyncTask<LatLng, Integer, Address> {
 

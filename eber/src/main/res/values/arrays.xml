@@ -8,7 +8,7 @@
         <item>@drawable/menu_document</item>
         <item>@drawable/menu_referral</item>
         <item>@drawable/menu_settings</item>
-        <item>@drawable/menu_favorite</item>
+        <item>@drawable/ic_baseline_language_24</item>
         <item>@drawable/menu_help</item>
     </array>
 
@@ -20,7 +20,7 @@
         <item>@string/text_Document</item>
         <item>@string/text_referral</item>
         <item>@string/text_settings</item>
-        <item>@string/text_menu_favourite_driver</item>
+        <item>@string/text_change_language</item>
         <item>@string/text_contact_us</item>
     </array>
 

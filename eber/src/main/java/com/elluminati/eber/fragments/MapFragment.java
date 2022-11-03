@@ -31,6 +31,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -1264,7 +1265,11 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
                             currentTrip.setEstimatedFareTime(etaResponse.getTime());
                             currentTrip.setTripType(Integer.valueOf(etaResponse.getTripType()));
                             currencyFormat = drawerActivity.currencyHelper.getCurrencyFormat(CurrentTrip.getInstance().getCurrencyCode());
-                          tvFareEst.setText(currencyFormat.format(etaResponse.getEstimatedFare()));
+                             tvFareEst.setText(currencyFormat.format(etaResponse.getEstimatedFare()));
+
+                            Log.e("Error----->",String.valueOf(etaResponse.getEstimatedFare()));
+//                            tvFareEst.setText("Null");
+
 
 
                             Utils.hideCustomProgressDialog();
@@ -1293,7 +1298,8 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         poolVehicleTypeList = new ArrayList<>();
         vehicleSelectAdapter = new VehicleSelectAdapter(drawerActivity, vehicleTypeList, poolVehicleTypeList);
         LinearLayoutManager vehicleLinearLayoutManager = new LinearLayoutManager(drawerActivity);
-        vehicleLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        vehicleLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                vehicleLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rcvMapVehicleTyp.setLayoutManager(vehicleLinearLayoutManager);
         rcvMapVehicleTyp.addOnItemTouchListener(new RecyclerTouchListener(drawerActivity, rcvMapVehicleTyp, new ClickListener() {
             @Override

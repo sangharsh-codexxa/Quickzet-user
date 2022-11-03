@@ -67,7 +67,9 @@
     <string name="text_work">Work</string>
     <string name="text_hint_home_address">Home address</string>
     <string name="text_hint_work_address">Work address</string>
-    <string name="text_car_id">Car id</string>
+<!--    <string name="text_car_id">Car id</string>-->
+
+    <string name="text_car_id">Car Id</string>
     <string name="text_plate_no">License plate no.</string>
     <string name="text_card">Card</string>
     <string name="text_cash">Cash</string>

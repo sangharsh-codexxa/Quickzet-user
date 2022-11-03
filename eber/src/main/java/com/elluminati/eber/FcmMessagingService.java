@@ -269,9 +269,7 @@ public class FcmMessagingService extends FirebaseMessagingService {
                             Utils.showErrorToast(response.body().getErrorCode(), FcmMessagingService.this);
                         }
                     }
-
                 }
-
                 @Override
                 public void onFailure(Call<IsSuccessResponse> call, Throwable t) {
                     AppLog.handleThrowable(FcmMessagingService.class.getSimpleName(), t);
