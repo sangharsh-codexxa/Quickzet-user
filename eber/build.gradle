@@ -10,8 +10,8 @@ android {
         applicationId "com.quickzet.customer"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.6"
         vectorDrawables.useSupportLibrary = true
         resValue "string", "FACEBOOK_APP_ID", "462544212599920"
         resValue "string", "FB_LOGIN_PROTOCOL_SCHEME", "fb462544212599920"

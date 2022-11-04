@@ -42,6 +42,11 @@
 
     <style name="TextAppearanceMedium" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:textColor">@color/color_app_theme_dark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextVehicleName" parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:textColor">@color/color_app_theme_dark</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearanceSmall" parent="@android:style/TextAppearance.DeviceDefault.Small">

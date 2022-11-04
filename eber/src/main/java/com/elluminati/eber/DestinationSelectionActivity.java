@@ -197,12 +197,11 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvTripHistory.setLayoutManager(linearLayoutManager);
 
+
         RecentTripHistoryAdapter tripHistoryAdaptor;
 
         List<TripHistory> tripHistoriesList = new ArrayList<>();
         final int[] pageNumber = {0};
-
-
 
         if (clearHistory) {
             pageNumber[0] = 1;
@@ -216,7 +215,6 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
             jsonObject.put(Const.Params.TOKEN, preferenceHelper.getSessionToken());
             String startDateEn = startDate;
             String endDateEn = endDate;
-
             jsonObject.put(Const.Params.START_DATE, startDateEn);
             jsonObject.put(Const.Params.END_DATE, endDateEn);
             jsonObject.put(Const.Params.PAGE, pageNumber[0]);
@@ -228,7 +226,10 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
                         if (response.body().isSuccess()) {
                             if (response.body().getTrips() != null && !response.body().getTrips().isEmpty()) {
 //                                pageNumber[0]++;
-                                tripHistoriesList.addAll(response.body().getTrips());
+
+//                                if(response.body().getTrips().)
+                                    tripHistoriesList.addAll(response.body().getTrips());
+
                                 Collections.reverse(tripHistoriesList);
                             }
 //                            getShortHistoryList(tripHistoriesList);
@@ -251,6 +252,7 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
                                 }
 
                             };
+
 
                             RecentTripHistoryAdapter recentTripHistory = new RecentTripHistoryAdapter(tripHistoriesList,itemClickListener);
                             rvTripHistory.setAdapter(recentTripHistory);
@@ -346,7 +348,6 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
                     ivClearPickUpText.setVisibility(View.VISIBLE);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 

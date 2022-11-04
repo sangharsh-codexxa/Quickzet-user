@@ -221,7 +221,9 @@
                             android:id="@+id/rv_recentPlace"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:listitem="@layout/item_recent_trip_history" />
+                            tools:listitem="@layout/item_recent_trip_history"
+                            app:stackFromEnd="true"
+                            app:reverseLayout="true"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

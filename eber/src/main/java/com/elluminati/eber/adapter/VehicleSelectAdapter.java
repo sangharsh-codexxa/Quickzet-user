@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.elluminati.eber.MainDrawerActivity;
 import com.elluminati.eber.R;
+import com.elluminati.eber.components.MyAppTitleFontTextView;
 import com.elluminati.eber.components.MyFontTextView;
 import com.elluminati.eber.models.datamodels.Card;
 import com.elluminati.eber.models.datamodels.CityType;
@@ -66,32 +67,31 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
         holder.tvVehicleType.setText(typeDetails.getTypename());
 
 
-//        ViewGroup.LayoutParams layoutParams = holder.viewSelectDiv.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = holder.viewSelectDiv.getLayoutParams();
         NumberFormat currencyFormat = null;
         if (drawerActivity.currentTrip.getVehiclePriceType() == Const.TYPE_SHARE_TRIP_PRICE && poolVehicleTypeList.get(position).isSelected) {
 //        if (drawerActivity.currentTrip.getVehiclePriceType() == Const.TYPE_SHARE_TRIP_PRICE && poolVehicleTypeList.get(position).isSelected){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                holder.tvVehicleType.setTextAppearance(R.style.TextAppearanceMedium);
+                holder.tvVehicleType.setTextAppearance(R.style.TextAppearance_AppCompat_Large);
 //                holder.tvCharges.setTextAppearance(R.style.TextAppearanceMedium);
             } else {
                 holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
 //                holder.tvCharges.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
 
             }
-//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_theme_dark, null));
-//            layoutParams.height = drawerActivity.getResources().getDimensionPixelOffset(R.dimen.dimen_div_height_2dp);
-//            ViewGroup.MarginLayoutParams layoutParams =
-//                    (ViewGroup.MarginLayoutParams) holder.vehicleCardView.getLayoutParams();
-//            layoutParams.setMargins(5, 0, 5, 0);
-//            holder.vehicleCardView.requestLayout();
+            holder.viewSelectDiv.setBackground(drawerActivity.getDrawable(R.drawable.squre_bg));
+
+
         } else if (drawerActivity.currentTrip.getVehiclePriceType() == Const.TYPE_NORMAL_PRICE && vehicleTypeList.get(position).isSelected) {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                holder.tvVehicleType.setTextAppearance(R.style.TextAppearanceSmall);
+
                 holder.tvVehicleType.setTextAppearance(R.style.TextAppearanceMedium);
 //                holder.tvCharges.setTextAppearance(R.style.TextAppearanceMedium);
 
             } else {
-                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
+                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceSmall);
 //                holder.tvCharges.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
 
             }
@@ -100,8 +100,9 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
 
 
 //            Log.e("Prices",String.valueOf(vehicleTypeList.get(position).getBasePriceDistance()+"\n"+vehicleTypeList.get(position).getBasePrice()+"\n"+vehicleTypeList.get(position).getBasePriceTime()+"\n"+vehicleTypeList.get(position).getPriceForTotalTime()));
+            holder.viewSelectDiv.setBackground(drawerActivity.getDrawable(R.drawable.squre_bg));
 
-//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_theme_dark, null));
+//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_red, null));
 //            layoutParams.height = drawerActivity.getResources().getDimensionPixelOffset(R.dimen.dimen_div_height_2dp);
 //            ViewGroup.MarginLayoutParams layoutParams =
 //                    (ViewGroup.MarginLayoutParams) holder.vehicleCardView.getLayoutParams();
@@ -111,14 +112,17 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
         } else if (drawerActivity.currentTrip.getVehiclePriceType() == Const.TYPE_RENTAL_PRICE && vehicleTypeList.get(position).isSelected) {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
                 holder.tvVehicleType.setTextAppearance(R.style.TextAppearanceMedium);
 //                holder.tvCharges.setTextAppearance(R.style.TextAppearanceMedium);
 
             } else {
-                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
+                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceSmall);
 //              holder.tvCharges.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
             }
-//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_theme_dark, null));
+            holder.viewSelectDiv.setBackground(drawerActivity.getDrawable(R.drawable.squre_bg));
+
+//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_red, null));
 //            ViewGroup.MarginLayoutParams layoutParams =
 //                    (ViewGroup.MarginLayoutParams) holder.vehicleCardView.getLayoutParams();
 //            layoutParams.setMargins(5, 0, 5, 0);
@@ -127,19 +131,20 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
         } else {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
                 holder.tvVehicleType.setTextAppearance(R.style.TextAppearanceSmall);
 //                holder.tvCharges.setTextAppearance(R.style.TextAppearanceSmall);
 
             } else {
-                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceSmall);
-//                holder.tvCharges.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
+//                holder.tvVehicleType.setTextAppearance(drawerActivity, R.style.TextAppearanceSmall);
+                holder.tvCharges.setTextAppearance(drawerActivity, R.style.TextAppearanceMedium);
 
             }
 //            ViewGroup.MarginLayoutParams layoutParams =
 //                    (ViewGroup.MarginLayoutParams) holder.vehicleCardView.getLayoutParams();
 //            layoutParams.setMargins(5, 5, 5, 5);
 //            holder.vehicleCardView.requestLayout();
-//            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_divider_horizontal, null));
+            holder.viewSelectDiv.setBackgroundColor(ResourcesCompat.getColor(drawerActivity.getResources(), R.color.color_app_trans_white, null));
 //            layoutParams.height = drawerActivity.getResources().getDimensionPixelOffset(R.dimen.dimen_div_height_1dp);
         }
         if (showRentalTypeOnly) {
@@ -166,7 +171,7 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
 
     @Override
     public int getItemCount() {
-        return drawerActivity   .currentTrip.getVehiclePriceType() == Const.TYPE_SHARE_TRIP_PRICE? poolVehicleTypeList.size():vehicleTypeList.size();
+        return drawerActivity.currentTrip.getVehiclePriceType() == Const.TYPE_SHARE_TRIP_PRICE? poolVehicleTypeList.size():vehicleTypeList.size();
     }
 
     public class VehicleViewHolder extends RecyclerView.ViewHolder {
@@ -174,14 +179,14 @@ public class VehicleSelectAdapter extends RecyclerView.Adapter<VehicleSelectAdap
         AppCompatImageView ivVehicleImage;
         MyFontTextView tvVehicleType;
         MyFontTextView tvCharges;
-//      View viewSelectDiv;
+      View viewSelectDiv;
         CardView vehicleCardView;
 
         public VehicleViewHolder(View itemView) {
             super(itemView);
             ivVehicleImage = itemView.findViewById(R.id.ivVehicle);
             tvVehicleType = itemView.findViewById(R.id.tvVehicleTypeFancy);
-//            viewSelectDiv = itemView.findViewById(R.id.viewSelectDiv);
+            viewSelectDiv = itemView.findViewById(R.id.viewSelectDiv);
             vehicleCardView = itemView.findViewById(R.id.card_vehicle_item);
 //            tvCharges = itemView.findViewById(R.id.tvVehicleTypeCharges);
         }

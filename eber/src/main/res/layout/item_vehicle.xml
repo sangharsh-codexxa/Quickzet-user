@@ -4,7 +4,16 @@
     android:layout_height="@dimen/dimen_vehicle_type_height">
 
 
+    <View
+        android:id="@+id/viewSelectDiv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@drawable/squre_bg" />
+
+
     <androidx.appcompat.widget.AppCompatImageView
+        android:layout_marginTop="5dp"
         android:id="@+id/ivVehicle"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -22,12 +31,8 @@
         android:text="Standard"
         android:textColor="@color/color_black"
         android:textSize="@dimen/size_general_small"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
-    <View
-        android:id="@+id/viewSelectDiv"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_gravity="bottom"
-        android:background="@color/color_app_divider_horizontal" />
 </FrameLayout>
