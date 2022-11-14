@@ -72,14 +72,17 @@
         <activity
             android:name=".AddFavouriteDriverActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible|adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".FavouriteDriverActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />
+            android:required="false"
+            />
 
         <activity
             android:name=".SplashScreenActivity"
@@ -109,47 +112,58 @@
         <activity
             android:name=".MainDrawerActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".ReferralEnterActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".PaymentActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".SplitPaymentActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".TripHistoryActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".TripHistoryDetailActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".ReferralDisplayActivtiy"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".BookingActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".SettingActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".DocumentActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -173,6 +187,7 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
+            android:exported="false"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.facebook.CustomTabActivity"
@@ -188,54 +203,69 @@
         </activity>
         <activity
             android:name=".DestinationSelectionActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".ContactUsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:exported="false"/>
         <activity
             android:name=".LoginActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OtpVerifyActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".EnterPasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".ForgotPasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".NewPasswordActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".WalletDetailActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".WalletHistoryActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 <!--        <activity-->
 <!--            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"-->
 <!--            android:theme="@style/Base.Theme.AppCompat" />-->
         <activity
             android:name=".AddCardActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".ChatActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".PromotionActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".PaystackPaymentActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

@@ -1812,6 +1812,26 @@ public class MapFragment extends BaseFragments implements OnMapReadyCallback, Ma
         dialog.show();
     }
 
+    private void openAdDialog() {
+
+        final Dialog dialog = new Dialog(drawerActivity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_banner);
+
+        dialog.findViewById(R.id.iv_closed).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        dialog.getWindow().setAttributes(params);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
+
     /**
      * Use for show surge price dialog before create trip request.
      *

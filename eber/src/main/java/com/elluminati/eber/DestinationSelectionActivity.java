@@ -238,7 +238,7 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
 //                                rcvHistory.setAdapter(tripHistoryAdaptor);
 //                            } else {
 //                            }
-//                            updateUi(tripHistoryShortList.size() > 0);
+//                          updateUi(tripHistoryShortList.size() > 0);
                             Utils.hideCustomProgressDialog();
 
 
@@ -378,16 +378,13 @@ public class DestinationSelectionActivity extends BaseAppCompatActivity implemen
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 if (s.length() != 0) {
                     cardView.setVisibility(View.GONE);
                     ivClearDestTextMap.setVisibility(View.VISIBLE);
                 } else {
                     ivClearDestTextMap.setVisibility(View.VISIBLE);
                 }
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 

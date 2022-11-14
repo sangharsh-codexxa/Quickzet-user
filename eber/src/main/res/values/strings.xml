@@ -711,7 +711,7 @@
     <string name="text_call_message">Please wait until call assign to you.</string>
     <string name="text_select_package">Select Package</string>
     <string name="text_eber_now">Now</string>
-    <string name="text_eber_rental">Rental</string>
+    <string name="text_eber_rental">Package</string>
     <string name="text_rent_now">Rent Now</string>
     <string name="text_packages">Select package</string>
     <string name="msg_plz_select_package">Please select valid package</string>

@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/dimen_vehicle_type_width"
-    android:layout_height="@dimen/dimen_vehicle_type_height">
+    android:layout_height="@dimen/dimen_vehicle_type_height"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+        app:cardElevation="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
 
     <View
+        android:layout_margin="5dp"
+        android:padding="3dp"
         android:id="@+id/viewSelectDiv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:background="@drawable/squre_bg" />
+
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -34,5 +46,6 @@
         android:textStyle="bold"
         android:textAlignment="center"
         />
+    </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+</RelativeLayout>

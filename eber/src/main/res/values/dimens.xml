@@ -42,7 +42,7 @@
     <dimen name="app_button_size">260dp</dimen>
     <dimen name="dialog_elevation">6dp</dimen>
     <dimen name="dimen_vehicle_type_width">120dp</dimen>
-    <dimen name="dimen_vehicle_type_height">80dp</dimen>
+    <dimen name="dimen_vehicle_type_height">90dp</dimen>
     <dimen name="dimen_div_height_1dp">1dp</dimen>
     <dimen name="dimen_div_height_2dp">2dp</dimen>
     <dimen name="map_trip_padding_top">130dp</dimen>
